@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="simplepdl" nsURI="http://simplepdl" nsPrefix="simplepdl">
+  <eClassifiers xsi:type="ecore:EClass" name="Network">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="processElement" upperBound="-1"
+        eType="#//NetworkElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NetworkElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//NetworkElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tokenNb" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arcs" lowerBound="1" upperBound="-1"
+        eType="#//arc"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="arc" eSuperTypes="#//NetworkElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="towardState" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="towardTransition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" lowerBound="1"
+        eType="#//Transition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//NetworkElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arcs" lowerBound="1" upperBound="-1"
+        eType="#//arc"/>
+  </eClassifiers>
+</ecore:EPackage>
