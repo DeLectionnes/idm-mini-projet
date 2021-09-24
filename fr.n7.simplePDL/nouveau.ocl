@@ -1,0 +1,35 @@
+import 'SimplePDL.ecore'
+
+package simplepdl
+
+context WorkSequence
+	--Une Work Sequence ne relie pas une activité à elle-même
+	inv pasReflexive: self.predecessor <> self.successor
+
+context Process
+	--chaque activitée a un nom unique
+	inv uniqueNomWD:  self.processElements
+		->select(p | p.oclIsKindOf(WorkDefinition))
+		->collect(p | p.oclAsType(WorkDefinition))
+		->isUnique( w |  w.name)
+	
+	--chaque ressource a un nom unique
+	inv uniqueNomRessource:  self.processElements
+		->select(p | p.oclIsKindOf(Ressource))
+		->collect(p | p.oclAsType(Ressource))
+		->isUnique( w |  w.name)
+
+context WorkDefinition
+	--Le nom d'une activité doit posséder au moins deux caractères et ne doit être composé que de lettres, chiffres ou soulignés, un chiffre ne peut pas être première position
+	inv nomValide('Invalid name: ' + self.name):
+		self.name.matches('[A-Za-z_][A-Za-z0-9_]+')
+
+context Ressource
+	-- La quantité doit être positive
+	inv quantitePositive: self.quantity > 0
+	--Chaque ressource ne doit pas être assignée à une activitée plus d'une fois
+	inv assignementUnique: 
+		self.linkToSequence
+		-> isUnique(p | p.successor)
+
+endpackage
