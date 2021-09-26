@@ -1,0 +1,47 @@
+import 'PetriNet.ecore'
+
+package petrinet
+
+context Network
+	--Chaque état a un nom différent des autres
+	inv nomUniqueEtat : 
+	self.networkElement
+	->select(p | p.oclIsKindOf(State))
+	->collect(p | p.oclAsType(State))
+	->isUnique( w |  w.name)
+	
+	--Chaque transition a un nom différent des autres
+	inv nomUniqueTransition : 
+	self.networkElement
+	->select(p | p.oclIsKindOf(Transition))
+	->collect(p | p.oclAsType(Transition))
+	->isUnique( w |  w.name)
+
+context NetworkElement
+def: network(): Network =
+	Network.allInstances()
+		->select(p | p.networkElement->includes(self))
+		->asSequence()->first()
+
+context arc
+	--Un arc relie deux éléments du même réseau
+	inv successeurEtPredecesseurDansMemeReseau('States not in the same process : '
+			+ self.state.name + ' in ' + self.state.network().name+ ' and '
+			+ self.transition.name + ' in ' + self.transition.network().name
+	):
+		self.network() = self.transition.network()
+		and self.network() = self.state.network()
+	
+	--Un arc a au moins un poids non nul
+	inv poidsNonNuls : self.towardState <> 0 or self.towardTransition <> 0
+	
+context State
+	
+	--Si un état n'a pas de jeton initialement, il est relié à un arc entrant.
+	inv videEtEntreParUnArc : self.tokenNb > 0 or self.arcs -> exists (p | p.towardState > 0)
+	
+context Transition
+	--Chaque transition est au moins reliée pas un arc entrant et un arc sortant
+	inv arcEnEntreeEtSortie: (self.arcs -> exists (p | p.towardState > 0)) and (self.arcs -> exists (p | p.towardTransition > 0)) 
+
+endpackage
