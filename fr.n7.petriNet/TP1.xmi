@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<simplepdl:Network
+<petrinet:Network
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:simplepdl="http://simplepdl"
-    xsi:schemaLocation="http://simplepdl PetriNet.ecore">
-  <processElement
-      xsi:type="simplepdl:State"
+    xmlns:petrinet="http://petrinet"
+    xsi:schemaLocation="http://petrinet PetriNet.ecore">
+  <networkElement
+      xsi:type="petrinet:State"
       name="X"
       tokenNb="4"
-      arcs="//@processElement.7 //@processElement.8 //@processElement.9"/>
-  <processElement
-      xsi:type="simplepdl:State"
+      arcs="//@networkElement.7 //@networkElement.8 //@networkElement.9"/>
+  <networkElement
+      xsi:type="petrinet:State"
       name="Y"
       tokenNb="2"
-      arcs="//@processElement.12 //@processElement.11 //@processElement.10 //@processElement.9"/>
-  <processElement
-      xsi:type="simplepdl:State"
+      arcs="//@networkElement.12 //@networkElement.11 //@networkElement.10 //@networkElement.9"/>
+  <networkElement
+      xsi:type="petrinet:State"
       name="Z"
-      arcs="//@processElement.14"/>
-  <processElement
-      xsi:type="simplepdl:Transition"
+      arcs="//@networkElement.14"/>
+  <networkElement
+      xsi:type="petrinet:Transition"
       name="t0"
-      arcs="//@processElement.7 //@processElement.10"/>
-  <processElement
-      xsi:type="simplepdl:Transition"
+      arcs="//@networkElement.7 //@networkElement.10"/>
+  <networkElement
+      xsi:type="petrinet:Transition"
       name="t1"
-      arcs="//@processElement.8 //@processElement.11"/>
-  <processElement
-      xsi:type="simplepdl:Transition"
+      arcs="//@networkElement.8 //@networkElement.11"/>
+  <networkElement
+      xsi:type="petrinet:Transition"
       name="t2"
-      arcs="//@processElement.9 //@processElement.12"/>
-  <processElement
-      xsi:type="simplepdl:Transition"
+      arcs="//@networkElement.9 //@networkElement.12"/>
+  <networkElement
+      xsi:type="petrinet:Transition"
       name="t4"
-      arcs="//@processElement.13 //@processElement.14"/>
-  <processElement
-      xsi:type="simplepdl:arc"
+      arcs="//@networkElement.13 //@networkElement.14"/>
+  <networkElement
+      xsi:type="petrinet:arc"
       towardState="2"
       towardTransition="5"
-      transition="//@processElement.3"
-      state="//@processElement.0"/>
-  <processElement
-      xsi:type="simplepdl:arc"
+      transition="//@networkElement.3"
+      state="//@networkElement.0"/>
+  <networkElement
+      xsi:type="petrinet:arc"
       towardTransition="2"
-      transition="//@processElement.4"
-      state="//@processElement.0"/>
-  <processElement
-      xsi:type="simplepdl:arc"
+      transition="//@networkElement.4"
+      state="//@networkElement.0"/>
+  <networkElement
+      xsi:type="petrinet:arc"
       towardState="5"
-      transition="//@processElement.5"
-      state="//@processElement.0"/>
-  <processElement
-      xsi:type="simplepdl:arc"
+      transition="//@networkElement.5"
+      state="//@networkElement.0"/>
+  <networkElement
+      xsi:type="petrinet:arc"
       towardState="3"
-      transition="//@processElement.3"
-      state="//@processElement.1"/>
-  <processElement
-      xsi:type="simplepdl:arc"
+      transition="//@networkElement.3"
+      state="//@networkElement.1"/>
+  <networkElement
+      xsi:type="petrinet:arc"
       towardState="3"
       towardTransition="1"
-      transition="//@processElement.4"
-      state="//@processElement.1"/>
-  <processElement
-      xsi:type="simplepdl:arc"
+      transition="//@networkElement.4"
+      state="//@networkElement.1"/>
+  <networkElement
+      xsi:type="petrinet:arc"
       towardTransition="5"
-      transition="//@processElement.5"
-      state="//@processElement.1"/>
-  <processElement
-      xsi:type="simplepdl:arc"
+      transition="//@networkElement.5"
+      state="//@networkElement.1"/>
+  <networkElement
+      xsi:type="petrinet:arc"
       towardState="9"
       towardTransition="9"
-      transition="//@processElement.6"
-      state="//@processElement.1"/>
-  <processElement
-      xsi:type="simplepdl:arc"
+      transition="//@networkElement.6"
+      state="//@networkElement.1"/>
+  <networkElement
+      xsi:type="petrinet:arc"
       towardState="1"
-      transition="//@processElement.6"
-      state="//@processElement.2"/>
-</simplepdl:Network>
+      transition="//@networkElement.6"
+      state="//@networkElement.2"/>
+</petrinet:Network>
