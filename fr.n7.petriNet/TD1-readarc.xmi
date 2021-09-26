@@ -3,8 +3,8 @@
     xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:simplepdl="http://simplepdl"
-    xsi:schemaLocation="http://simplepdl PetriNet.ecore"
+    xmlns:petrinet="http://petrinet"
+    xsi:schemaLocation="http://petrinet PetriNet.ecore"
     name="testNetwork1">
 	
   <networkElement
