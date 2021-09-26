@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplepdl:Network
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplepdl="http://simplepdl"
+    xsi:schemaLocation="http://simplepdl PetriNet.ecore"
+    name="TD1 Ex1">
+  <processElement
+      xsi:type="simplepdl:State"
+      name="Producteur Idle"
+      arcs="//@processElement.10 //@processElement.11"/>
+  <processElement
+      xsi:type="simplepdl:State"
+      name="Producteur"
+      tokenNb="1"
+      arcs="//@processElement.9 //@processElement.12"/>
+  <processElement
+      xsi:type="simplepdl:State"
+      name="Tampon"
+      arcs="//@processElement.13 //@processElement.14"/>
+  <processElement
+      xsi:type="simplepdl:State"
+      name="Consommateur"
+      arcs="//@processElement.18 //@processElement.16"/>
+  <processElement
+      xsi:type="simplepdl:State"
+      name="Consommateur Idle"
+      tokenNb="1"
+      arcs="//@processElement.17 //@processElement.15"/>
+  <processElement
+      xsi:type="simplepdl:Transition"
+      name="P1"
+      arcs="//@processElement.9 //@processElement.10"/>
+  <processElement
+      xsi:type="simplepdl:Transition"
+      name="P2"
+      arcs="//@processElement.11 //@processElement.12 //@processElement.13"/>
+  <processElement
+      xsi:type="simplepdl:Transition"
+      name="C1"
+      arcs="//@processElement.18 //@processElement.17"/>
+  <processElement
+      xsi:type="simplepdl:Transition"
+      name="C2"
+      arcs="//@processElement.16 //@processElement.15 //@processElement.14"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardTransition="1"
+      transition="//@processElement.5"
+      state="//@processElement.1"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardState="1"
+      transition="//@processElement.5"
+      state="//@processElement.0"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardTransition="1"
+      transition="//@processElement.6"
+      state="//@processElement.0"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardTransition="1"
+      transition="//@processElement.6"
+      state="//@processElement.1"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardState="1"
+      transition="//@processElement.6"
+      state="//@processElement.2"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardTransition="1"
+      transition="//@processElement.8"
+      state="//@processElement.2"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardState="1"
+      transition="//@processElement.8"
+      state="//@processElement.4"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardTransition="1"
+      transition="//@processElement.8"
+      state="//@processElement.3"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardTransition="1"
+      transition="//@processElement.7"
+      state="//@processElement.4"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardState="1"
+      transition="//@processElement.7"
+      state="//@processElement.3"/>
+</simplepdl:Network>
