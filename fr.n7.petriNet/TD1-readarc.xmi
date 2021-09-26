@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petrinet:Network
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplepdl="http://simplepdl"
+    xsi:schemaLocation="http://simplepdl PetriNet.ecore"
+    name="testNetwork1">
+	
+  <networkElement
+	xsi:type="petrinet:State"
+      	name="E0"
+      	tokenNb="2"
+	arcs="//@networkElement.8 //@networkElement.9"/>
+  <networkElement
+      	xsi:type="petrinet:State"
+      	name="E1"
+      	tokenNb="3"
+	arcs="//@networkElement.6"/>
+  <networkElement
+      	xsi:type="petrinet:State"
+      	name="E2"
+      	arcs="//@networkElement.7"/>	  
+  <networkElement
+      	xsi:type="petrinet:State"
+      	name="E3"
+	arcs="//@networkElement.10"/>
+
+
+  <networkElement
+     	xsi:type="petrinet:Transition"
+      	name="T1"
+	arcs="//@networkElement.6 //@networkElement.7 //@networkElement.8"/>
+  <networkElement
+      	xsi:type="petrinet:Transition"
+      	name="T2"
+	arcs="//@networkElement.9 //@networkElement.10"/>
+	  
+  <networkElement
+      	xsi:type="petrinet:Arc"
+	state="//@networkElement.1"
+	transition="//@networkElement.4"
+	towardTransition="1"/>
+  <networkElement
+      	xsi:type="petrinet:Arc"
+	state="//@networkElement.2"
+	transition="//@networkElement.4"
+	towardState="1"/>
+  <networkElement
+      	xsi:type="petrinet:Arc"
+	state="//@networkElement.0"
+	transition="//@networkElement.4"
+	towardTransition="2"
+	towardState="2"/>
+  <networkElement
+      	xsi:type="petrinet:Arc"
+	state="//@networkElement.0"
+	transition="//@networkElement.5"
+	towardTransition="1"/>
+  <networkElement
+      	xsi:type="petrinet:Arc"
+	state="//@networkElement.3"
+	transition="//@networkElement.5"
+	towardState="1"/>	
+	  
+</petrinet:Network>
