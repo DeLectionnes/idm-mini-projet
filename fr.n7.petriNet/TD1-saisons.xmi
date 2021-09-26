@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petrinet:Network
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplepdl="http://simplepdl"
+    xsi:schemaLocation="http://simplepdl PetriNet.ecore"
+    name="testNetwork2">
+	
+  <networkElement
+      xsi:type="petrinet:State"
+      name="Ete"
+	  arcs="//@networkElement.8 //@networkElement.15"/>
+  <networkElement
+      xsi:type="petrinet:State"
+      name="Automne"
+	  arcs="//@networkElement.9 //@networkElement.10"/>
+  <networkElement
+      xsi:type="petrinet:State"
+      name="Hiver"
+	  tokenNb="1"
+	  arcs="//@networkElement.11 //@networkElement.12"/>	  
+  <networkElement
+      xsi:type="petrinet:State"
+      name="Printemps"
+	  arcs="//@networkElement.13 //@networkElement.14"/>
+
+
+  <networkElement
+      xsi:type="petrinet:Transition"
+      name="Ete2Automne"
+	  arcs="//@networkElement.8 //@networkElement.9"/>
+  <networkElement
+      xsi:type="petrinet:Transition"
+      name="Automne2Hiver"
+	  arcs="//@networkElement.10 //@networkElement.11"/>
+  <networkElement
+      xsi:type="petrinet:Transition"
+      name="Hiver2Printemps"
+	  arcs="//@networkElement.12 //@networkElement.13"/>	  
+  <networkElement
+      xsi:type="petrinet:Transition"
+      name="Printemps2Ete"
+	  arcs="//@networkElement.14 //@networkElement.15"/>
+
+  <networkElement
+      xsi:type="petrinet:Arc"
+	  state="//@networkElement.0"
+	  transition="//@networkElement.4"
+	  towardTransition="1"/>
+  <networkElement
+      xsi:type="petrinet:Arc"
+	  state="//@networkElement.1"
+	  transition="//@networkElement.4"
+	  towardState="1"/>
+  <networkElement
+      xsi:type="petrinet:Arc"
+	  state="//@networkElement.1"
+	  transition="//@networkElement.5"
+	  towardTransition="1"/>
+  <networkElement
+      xsi:type="petrinet:Arc"
+	  state="//@networkElement.2"
+	  transition="//@networkElement.5"
+	  towardState="1"/>
+  <networkElement
+      xsi:type="petrinet:Arc"
+	  state="//@networkElement.2"
+	  transition="//@networkElement.6"
+	  towardTransition="1"/>
+  <networkElement
+      xsi:type="petrinet:Arc"
+	  state="//@networkElement.3"
+	  transition="//@networkElement.6"
+	  towardState="1"/>
+  <networkElement
+      xsi:type="petrinet:Arc"
+	  state="//@networkElement.3"
+	  transition="//@networkElement.7"
+	  towardTransition="1"/>
+  <networkElement
+      xsi:type="petrinet:Arc"
+	  state="//@networkElement.0"
+	  transition="//@networkElement.7"
+	  towardState="1"/>	
+	  
+</petrinet:Network>
