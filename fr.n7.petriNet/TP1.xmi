@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<simplepdl:Network
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:simplepdl="http://simplepdl"
+    xsi:schemaLocation="http://simplepdl PetriNet.ecore">
+  <processElement
+      xsi:type="simplepdl:State"
+      name="X"
+      tokenNb="4"
+      arcs="//@processElement.7 //@processElement.8 //@processElement.9"/>
+  <processElement
+      xsi:type="simplepdl:State"
+      name="Y"
+      tokenNb="2"
+      arcs="//@processElement.12 //@processElement.11 //@processElement.10 //@processElement.9"/>
+  <processElement
+      xsi:type="simplepdl:State"
+      name="Z"
+      arcs="//@processElement.14"/>
+  <processElement
+      xsi:type="simplepdl:Transition"
+      name="t0"
+      arcs="//@processElement.7 //@processElement.10"/>
+  <processElement
+      xsi:type="simplepdl:Transition"
+      name="t1"
+      arcs="//@processElement.8 //@processElement.11"/>
+  <processElement
+      xsi:type="simplepdl:Transition"
+      name="t2"
+      arcs="//@processElement.9 //@processElement.12"/>
+  <processElement
+      xsi:type="simplepdl:Transition"
+      name="t4"
+      arcs="//@processElement.13 //@processElement.14"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardState="2"
+      towardTransition="5"
+      transition="//@processElement.3"
+      state="//@processElement.0"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardTransition="2"
+      transition="//@processElement.4"
+      state="//@processElement.0"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardState="5"
+      transition="//@processElement.5"
+      state="//@processElement.0"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardState="3"
+      transition="//@processElement.3"
+      state="//@processElement.1"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardState="3"
+      towardTransition="1"
+      transition="//@processElement.4"
+      state="//@processElement.1"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardTransition="5"
+      transition="//@processElement.5"
+      state="//@processElement.1"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardState="9"
+      towardTransition="9"
+      transition="//@processElement.6"
+      state="//@processElement.1"/>
+  <processElement
+      xsi:type="simplepdl:arc"
+      towardState="1"
+      transition="//@processElement.6"
+      state="//@processElement.2"/>
+</simplepdl:Network>
