@@ -10,16 +10,17 @@
   <networkElement
       xsi:type="petrinet:State"
       name="E0"
+      tokenNb="2"
 	  arcs="//@networkElement.8 //@networkElement.9"/>
   <networkElement
       xsi:type="petrinet:State"
       name="E1"
+      tokenNb="3"
 	  arcs="//@networkElement.6"/>
   <networkElement
       xsi:type="petrinet:State"
       name="E2"
-	  tokenNb="1"
-	  arcs="//@networkElement.7"/>	  
+      arcs="//@networkElement.7"/>	  
   <networkElement
       xsi:type="petrinet:State"
       name="E3"
