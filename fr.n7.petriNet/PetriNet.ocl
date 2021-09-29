@@ -35,13 +35,33 @@ context arc
 	--Un arc a au moins un poids non nul
 	inv poidsNonNuls : self.towardState <> 0 or self.towardTransition <> 0
 	
+	--L'etat pointé par l'arc possède l'arc dans ses arcs
+	inv etatRelieArc : 
+		self.state.arcs ->
+		exists(p | p = self)
+		
+		--La transition pointé par l'arc possède l'arc dans ses arcs
+	inv transitionRelieArc : 
+		self.transition.arcs ->
+		exists(p | p = self)
+	
 context State
 	
 	--Si un état n'a pas de jeton initialement, il est relié à un arc entrant.
 	inv videEtEntreParUnArc : self.tokenNb > 0 or self.arcs -> exists (p | p.towardState > 0)
 	
+	--Les arcs indiqués par l'état sont bien liés à l'état
+	inv arcsRelieEtat :
+		self.arcs ->
+		forAll(p | p.state = self)
+	
 context Transition
 	--Chaque transition est au moins reliée pas un arc entrant et un arc sortant
-	inv arcEnEntreeEtSortie: (self.arcs -> exists (p | p.towardState > 0)) and (self.arcs -> exists (p | p.towardTransition > 0)) 
+	inv arcEnEntreeEtSortie : (self.arcs -> exists (p | p.towardState > 0)) and (self.arcs -> exists (p | p.towardTransition > 0)) 
+	
+	--Les arcs indiqués par la transition sont bien liés à l'état
+	inv arcsRelieTransition :
+		self.arcs ->
+		forAll(p | p.transition = self)
 
 endpackage

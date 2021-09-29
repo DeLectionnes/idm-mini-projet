@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<petrinet:Network
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:petrinet="http://petrinet"
+    xsi:schemaLocation="http://petrinet PetriNet.ecore"
+    name="ko">
+  <networkElement
+      xsi:type="petrinet:State"
+      name="MemeNom1"
+      arcs="//@networkElement.10 //@networkElement.13"/>
+  <networkElement
+      xsi:type="petrinet:State"
+      name="MemeNom1"
+      arcs="//@networkElement.11 //@networkElement.9"/>
+  <networkElement
+      xsi:type="petrinet:State"
+      name="EtatNonRelie"
+      tokenNb="1"
+      arcs="//@networkElement.9"/>
+  <networkElement
+      xsi:type="petrinet:Transition"
+      name="TransitionNonReliee"
+      arcs="//@networkElement.10"/>
+  <networkElement
+      xsi:type="petrinet:Transition"
+      name="NomUnique1"
+      arcs="//@networkElement.10"/>
+  <networkElement
+      xsi:type="petrinet:Transition"
+      name="NomUnique1"
+      arcs="//@networkElement.11 //@networkElement.9"/>
+  <networkElement
+      xsi:type="petrinet:State"
+      name="VideSansEntrant"
+      arcs="//@networkElement.12"/>
+  <networkElement
+      xsi:type="petrinet:Transition"
+      name="SansEntrant"
+      arcs="//@networkElement.13"/>
+  <networkElement
+      xsi:type="petrinet:Transition"
+      name="SansSortant"
+      arcs="//@networkElement.12"/>
+  <networkElement
+      xsi:type="petrinet:arc"
+      transition="//@networkElement.5"
+      state="//@networkElement.1"/>
+  <networkElement
+      xsi:type="petrinet:arc"
+      towardState="1"
+      towardTransition="1"
+      transition="//@networkElement.4"
+      state="//@networkElement.0"/>
+  <networkElement
+      xsi:type="petrinet:arc"
+      towardState="1"
+      towardTransition="1"
+      transition="//@networkElement.5"
+      state="//@networkElement.1"/>
+  <networkElement
+      xsi:type="petrinet:arc"
+      towardTransition="1"
+      transition="//@networkElement.8"
+      state="//@networkElement.6"/>
+  <networkElement
+      xsi:type="petrinet:arc"
+      towardState="1"
+      transition="//@networkElement.7"
+      state="//@networkElement.0"/>
+  <networkElement
+      xsi:type="petrinet:arc"
+      towardState="2"
+      towardTransition="2"
+      transition="//@networkElement.3"
+      state="//@networkElement.2"/>
+</petrinet:Network>
