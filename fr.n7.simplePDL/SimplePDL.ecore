@@ -20,7 +20,7 @@
         eType="#//WorkSequence" eOpposite="#//WorkSequence/predecessor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="ressourceNeeded" upperBound="-1"
-        eType="#//RessourceSupply"/>
+        eType="#//RessourceSupply" eOpposite="#//RessourceSupply/successor"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="WorkSequence" eSuperTypes="#//ProcessElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="linkType" lowerBound="1"
@@ -38,7 +38,7 @@
   <eClassifiers xsi:type="ecore:EClass" name="Ressource" eSuperTypes="#//ProcessElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="linkToSequence" upperBound="-1"
-        eType="#//RessourceSupply"/>
+        eType="#//RessourceSupply" eOpposite="#//RessourceSupply/predecessor"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantity" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
@@ -46,8 +46,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="quantityNeeded" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="successor" lowerBound="1"
-        eType="#//WorkDefinition"/>
+        eType="#//WorkDefinition" eOpposite="#//WorkDefinition/ressourceNeeded"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="predecessor" lowerBound="1"
-        eType="#//Ressource"/>
+        eType="#//Ressource" eOpposite="#//Ressource/linkToSequence"/>
   </eClassifiers>
 </ecore:EPackage>

@@ -18,6 +18,12 @@ context Process
 		->select(p | p.oclIsKindOf(Ressource))
 		->collect(p | p.oclAsType(Ressource))
 		->isUnique( w |  w.name)
+		
+context ProcessElement
+	def: process(): Process =
+		Process.allInstances()
+			->select(p | p.processElements->includes(self))
+			->asSequence()->first()
 
 context WorkDefinition
 	--Le nom d'une activité doit posséder au moins deux caractères et ne doit être composé que de lettres, chiffres ou soulignés, un chiffre ne peut pas être première position
@@ -31,5 +37,13 @@ context Ressource
 	inv assignementUnique: 
 		self.linkToSequence
 		-> isUnique(p | p.successor)
-
+		
+context RessourceSupply
+	--Une RessourceSupply doit relier deux éléments du même process
+	inv successorAndPredecessorInSameProcess('Activities not in the same process : '
+			+ self.predecessor.name + ' in ' + self.predecessor.process().name+ ' and '
+			+ self.successor.name + ' in ' + self.successor.process().name
+	):
+		self.process() = self.successor.process()
+		and self.process() = self.predecessor.process()		
 endpackage

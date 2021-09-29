@@ -12,9 +12,11 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tokenNb" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arcs" lowerBound="1" upperBound="-1"
-        eType="#//arc" eOpposite="#//arc/state"/>
+        eType="#//Arc" eOpposite="#//Arc/state"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ReadArcs" upperBound="-1"
+        eType="#//ReadArc" eOpposite="#//ReadArc/state"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="arc" eSuperTypes="#//NetworkElement">
+  <eClassifiers xsi:type="ecore:EClass" name="Arc" eSuperTypes="#//NetworkElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="towardState" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="towardTransition" lowerBound="1"
@@ -24,9 +26,19 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"
         eOpposite="#//State/arcs"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ReadArc" eSuperTypes="#//NetworkElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="towardTransition" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="transition" lowerBound="1"
+        eType="#//Transition" eOpposite="#//Transition/ReadArcs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"
+        eOpposite="#//State/ReadArcs"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//NetworkElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arcs" lowerBound="1" upperBound="-1"
-        eType="#//arc" eOpposite="#//arc/transition"/>
+        eType="#//Arc" eOpposite="#//Arc/transition"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="ReadArcs" upperBound="-1"
+        eType="#//ReadArc" eOpposite="#//ReadArc/transition"/>
   </eClassifiers>
 </ecore:EPackage>

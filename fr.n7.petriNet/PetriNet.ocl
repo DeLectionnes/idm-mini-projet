@@ -23,7 +23,7 @@ def: network(): Network =
 		->select(p | p.networkElement->includes(self))
 		->asSequence()->first()
 
-context arc
+context Arc
 	--Un arc relie deux éléments du même réseau
 	inv successeurEtPredecesseurDansMemeReseau('States not in the same process : '
 			+ self.state.name + ' in ' + self.state.network().name+ ' and '
@@ -35,8 +35,19 @@ context arc
 	--Un arc a au moins un poids non nul
 	inv poidsNonNuls : self.towardState <> 0 or self.towardTransition <> 0
 	
-context State
+context ReadArc
+	--Un readarc relie deux éléments du même réseau
+	inv successeurEtPredecesseurDansMemeReseau('States not in the same process : '
+			+ self.state.name + ' in ' + self.state.network().name+ ' and '
+			+ self.transition.name + ' in ' + self.transition.network().name
+	):
+		self.network() = self.transition.network()
+		and self.network() = self.state.network()
 	
+	--Un readarc a son poids non nul
+	inv poidsNonNuls : self.towardTransition <> 0
+	
+context State
 	--Si un état n'a pas de jeton initialement, il est relié à un arc entrant.
 	inv videEtEntreParUnArc : self.tokenNb > 0 or self.arcs -> exists (p | p.towardState > 0)
 	
