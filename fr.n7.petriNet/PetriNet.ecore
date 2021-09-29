@@ -12,7 +12,7 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tokenNb" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arcs" lowerBound="1" upperBound="-1"
-        eType="#//arc"/>
+        eType="#//arc" eOpposite="#//arc/state"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="arc" eSuperTypes="#//NetworkElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="towardState" lowerBound="1"
@@ -20,12 +20,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="towardTransition" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="transition" lowerBound="1"
-        eType="#//Transition"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"/>
+        eType="#//Transition" eOpposite="#//Transition/arcs"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="state" lowerBound="1" eType="#//State"
+        eOpposite="#//State/arcs"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Transition" eSuperTypes="#//NetworkElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="arcs" lowerBound="1" upperBound="-1"
-        eType="#//arc"/>
+        eType="#//arc" eOpposite="#//arc/transition"/>
   </eClassifiers>
 </ecore:EPackage>
