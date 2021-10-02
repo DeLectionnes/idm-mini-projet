@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>fr.n7.model.conversion</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src.petrinet</name>
+			<type>2</type>
+			<location>/media/basile/DATA/Cours/IDM/idm-mini-projet/fr.n7.petriNet/src</location>
+		</link>
+		<link>
+			<name>src.simplepdl</name>
+			<type>2</type>
+			<location>/media/basile/DATA/Cours/IDM/idm-mini-projet/fr.n7.simplePDL/src</location>
+		</link>
+	</linkedResources>
+</projectDescription>
