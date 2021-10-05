@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/fr.n7.simplePDL.feature_1.0.0.202109291801.jar" id="fr.n7.simplePDL.feature" version="1.0.0.202109291801"/>
-   <category-def name="N7 GLS Feature" label="N7 GLS Feature"/>
+   <feature url="features/fr.n7.model.deploiement_1.0.0.202110051337.jar" id="fr.n7.model.deploiement" version="1.0.0.202110051337"/>
 </site>

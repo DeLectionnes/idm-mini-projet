@@ -45,5 +45,7 @@
 			<accessrule ignoreifbetter="true" kind="nonaccessible" pattern="**/*"/>
 		</accessrules>
 	</classpathentry>
+	<classpathentry kind="src" path="/fr.n7.simplePDL"/>
+	<classpathentry kind="src" path="/fr.n7.petriNet"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
