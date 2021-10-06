@@ -45,14 +45,22 @@
          unpack="false"/>
 
    <plugin
+<<<<<<< HEAD
+         id="fr.n7.simplepdl.todot"
+=======
          id="fr.n7.simplePDL.edit"
+>>>>>>> 1be7449dc2bac17620504e343a9f8425a48fcc90
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
+<<<<<<< HEAD
+         id="fr.n7.simplepdl.todot.ui"
+=======
          id="fr.n7.simplePDL.editor"
+>>>>>>> 1be7449dc2bac17620504e343a9f8425a48fcc90
          download-size="0"
          install-size="0"
          version="0.0.0"
