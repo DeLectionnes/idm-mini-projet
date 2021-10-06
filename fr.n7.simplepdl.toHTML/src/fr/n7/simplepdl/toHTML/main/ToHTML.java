@@ -24,6 +24,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
+import simplepdl.SimplepdlPackage;
+
 /**
  * Entry point of the 'ToHTML' generation module.
  *
@@ -335,11 +337,17 @@ public class ToHTML extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
+        
+        if (!isInWorkspace(SimplepdlPackage.class)) {
+           // The normal package registration if your metamodel is in a plugin.
+           resourceSet.getPackageRegistry().put(SimplepdlPackage.eNS_URI, SimplepdlPackage.eINSTANCE);
+        }
+            
         
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"

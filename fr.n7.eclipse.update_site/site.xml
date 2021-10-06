@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
+<<<<<<< HEAD
    <feature url="features/fr.n7.model.deploiement_1.0.0.202110061044.jar" id="fr.n7.model.deploiement" version="1.0.0.202110061044"/>
+=======
+   <feature url="features/fr.n7.model.deploiement_1.0.0.202110060825.jar" id="fr.n7.model.deploiement" version="1.0.0.202110060825"/>
+>>>>>>> 1be7449dc2bac17620504e343a9f8425a48fcc90
 </site>
