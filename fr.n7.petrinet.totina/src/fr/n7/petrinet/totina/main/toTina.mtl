@@ -1,0 +1,108 @@
+[comment encoding = UTF-8 /]
+[module toTina('http://petrinet')]
+
+
+[template public networkToTina(aNetwork : Network)]
+[comment @main/]
+[file (aNetwork.name + '.net', false, 'UTF-8')]
+
+net [aNetwork.name/]
+[let sts : OrderedSet(State) = aNetwork.getSTs() ][comment
+	/][if (sts->size() > 0)][comment
+		/][for (st : State | sts)][comment
+			/][st.stateToTina()/]
+		[/for]
+	[else]
+	None.
+	[/if]
+[/let]
+[let trs : OrderedSet(Transition) = aNetwork.getTRs() ] [comment
+	/][if (trs->size() > 0)][comment
+		/][let arcs : OrderedSet(Arc) = aNetwork.getArcs() ][comment
+		/][let ra : OrderedSet(ReadArc) = aNetwork.getRA() ][comment
+			/][for (tr : Transition | trs)][comment
+				/][tr.transitionToTina(arcs, ra)/]
+			[/for]
+		[/let]
+		[/let]
+	[else]
+	None.
+	[/if]
+[/let]
+
+[/file]
+[/template]
+
+[template public stateToTina(st : State) post (trim()) ]
+	pl [st.name/] ([st.tokenNb/])
+[/template]
+
+[template public transitionToTina(tr : Transition, arcs : OrderedSet(Arc), ra : OrderedSet(ReadArc)) post (trim()) ]
+	tr [tr.name/] ['['/]0;w['['/] [tr.writePreArcs(arcs)/][tr.writeRA(ra)/] -> [tr.writePostArcs(arcs)/]
+[/template]
+
+[template public writePreArcs(tr : Transition, arcs : OrderedSet(Arc)) post (trim()) ]
+	[if (arcs->size() > 0)][comment
+		/][for (arc : Arc | arcs)][comment
+			/][if (arc.transition=tr and arc.towardTransition>0)][comment
+				/] [arc.state.name/]*[arc.towardTransition/][comment
+			/][/if]
+		[/for]
+	[/if]
+[/template]
+
+[template public writePostArcs(tr : Transition, arcs : OrderedSet(Arc)) post (trim()) ]
+	[if (arcs->size() > 0)][comment
+		/][for (arc : Arc | arcs)][comment
+			/][if (arc.transition=tr and arc.towardState>0)][comment
+				/] arc.state.name/][comment
+			/][/if]
+		[/for]
+	[/if]
+[/template]
+
+[template public writeRA(tr : Transition, ras : OrderedSet(ReadArc)) post (trim()) ]
+	[if (ras->size() > 0)][comment
+		/][for (ra : ReadArc | ras)][comment
+			/][if (ra.transition=tr)][comment
+				/] [ra.state.name/]?[ra.towardTransition/][comment
+			/][/if]
+		[/for]
+	[/if]
+[/template]
+
+
+
+[query public getSTs(n: Network) : OrderedSet(State) = 
+	n.networkElement->select( e | e.oclIsTypeOf(State) )
+		->collect( e | e.oclAsType(State) )
+		->asOrderedSet()
+/]
+
+[query public getTRs(n: Network) : OrderedSet(Arc) = 
+	n.networkElement->select( e | e.oclIsTypeOf(Transition) )
+		->collect( e | e.oclAsType(Transition) )
+		->asOrderedSet()
+/]
+
+[query public getArcs(n: Network) : OrderedSet(Arc) = 
+	n.networkElement->select( e | e.oclIsTypeOf(Arc) )
+		->collect( e | e.oclAsType(Arc) )
+		->asOrderedSet()
+/]
+
+[query public getRA(n: Network) : OrderedSet(ReadArc) = 
+	n.networkElement->select( e | e.oclIsTypeOf(ReadArc) )
+		->collect( e | e.oclAsType(ReadArc) )
+		->asOrderedSet()
+/]
+
+
+
+
+
+
+
+
+
+
