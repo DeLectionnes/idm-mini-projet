@@ -1,0 +1,27 @@
+
+net TestProcess1
+pl ConceptionReady (1)
+pl ConceptionStarted (0)
+pl ConceptionRunning (0)
+pl ConceptionFinished (0)
+pl RedactionDocReady (1)
+pl RedactionDocStarted (0)
+pl RedactionDocRunning (0)
+pl RedactionDocFinished (0)
+pl ProgrammationReady (1)
+pl ProgrammationStarted (0)
+pl ProgrammationRunning (0)
+pl ProgrammationFinished (0)
+pl RedactionTestsReady (1)
+pl RedactionTestsStarted (0)
+pl RedactionTestsRunning (0)
+pl RedactionTestsFinished (0)
+tr ConceptionStart [0;w[ ConceptionReady*1 -> arc.state.name/] arc.state.name/]
+tr ConceptionFinish [0;w[ ConceptionRunning*1 -> arc.state.name/]
+tr RedactionDocStart [0;w[ RedactionDocReady*1ConceptionStarted?1 -> arc.state.name/] arc.state.name/]
+tr RedactionDocFinish [0;w[ RedactionDocRunning*1ConceptionFinished?1 -> arc.state.name/]
+tr ProgrammationStart [0;w[ ProgrammationReady*1ConceptionFinished?1 -> arc.state.name/] arc.state.name/]
+tr ProgrammationFinish [0;w[ ProgrammationRunning*1 -> arc.state.name/]
+tr RedactionTestsStart [0;w[ RedactionTestsReady*1ConceptionStarted?1 -> arc.state.name/] arc.state.name/]
+tr RedactionTestsFinish [0;w[ RedactionTestsRunning*1ProgrammationFinished?1 -> arc.state.name/]
+

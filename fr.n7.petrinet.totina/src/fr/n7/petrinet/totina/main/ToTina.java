@@ -24,6 +24,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
+import petrinet.PetrinetPackage;
+
 /**
  * Entry point of the 'ToTina' generation module.
  *
@@ -335,12 +337,15 @@ public class ToTina extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void registerPackages(ResourceSet resourceSet) {
         super.registerPackages(resourceSet);
         
+        if (!isInWorkspace(PetrinetPackage.class)) {
+            resourceSet.getPackageRegistry().put(PetrinetPackage.eNS_URI, PetrinetPackage.eINSTANCE);
+        }
         /*
          * If you want to change the content of this method, do NOT forget to change the "@generated"
          * tag in the Javadoc of this method to "@generated NOT". Without this new tag, any compilation
