@@ -1,0 +1,76 @@
+module SimplePDL2PetriNet;
+create OUT: petrinet from  IN: simplepdl;
+
+-- Obtenir le processus qui contient ce process element.
+-- Remarque: Ce helper ne serait pas utile si une r�f�rence opposite
+-- avait �t� plac�e entre Process et ProcessElement
+helper context simplepdl!ProcessElement
+def: getProcess(): simplepdl!Process =
+	simplepdl!Process.allInstances()
+		->select(p | p.processElements->includes(self))
+		->asSequence()->first();
+
+-- Traduire un Process en un PetriNet de m�me nom
+rule Process2PetriNet {
+	from p: simplepdl!Process
+	to pn: petrinet!Network (name <- p.name)
+}
+
+-- Traduire une WorkDefinition en un motif sur le r�seau de Petri
+rule WorkDefinition2PetriNet {
+	from wd: simplepdl!WorkDefinition
+	to
+		-- PLACES d'une WorkDefinition
+		s_ready: petrinet!State(
+				name <- wd.name + '_ready',
+				tokenNb <- 1,
+				network <- wd.getProcess()),
+		s_started: petrinet!State(
+				name <- wd.name + '_started',
+				tokenNb <- 0,
+				network <- wd.getProcess()),
+		s_running: petrinet!State(
+				name <- wd.name + '_running',
+				tokenNb <- 0,
+				network <- wd.getProcess()),
+		s_finished: petrinet!State(
+				name <- wd.name + '_finished',
+				tokenNb <- 0,
+				network <- wd.getProcess()),
+		t_start: petrinet!Transition(
+				name <- wd.name + '_start',
+				network <- wd.getProcess()),
+		t_finish: petrinet!Transition(
+				name <- wd.name + '_finish',
+				network <- wd.getProcess()),
+		arc_ready2start: petrinet!Arc(
+				towardState <- 0,
+				towardTransition <- 1,
+				state <- s_ready -> oclAsType(petrinet!State),
+				transition <- t_start -> oclAsType(petrinet!Transition),
+				network <- wd.getProcess()),
+		arc_start2started: petrinet!Arc(
+				towardState <- 1,
+				towardTransition <- 0,
+				state <- s_started,
+				transition <- t_start,
+				network <- wd.getProcess()),
+		arc_start2running: petrinet!Arc(
+				towardState <- 1,
+				towardTransition <- 0,
+				state <- s_running,
+				transition <- t_start,
+				network <- wd.getProcess()),
+		arc_running2finish: petrinet!Arc(
+				towardState <- 0,
+				towardTransition <- 1,
+				state <- s_running,
+				transition <- t_finish,
+				network <- wd.getProcess()),
+		arc_finish2finished: petrinet!Arc(
+				towardState <- 1,
+				towardTransition <- 0,
+				state <- s_finished,
+				transition <- t_finish,
+				network <- wd.getProcess())
+}

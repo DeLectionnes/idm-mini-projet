@@ -4,9 +4,12 @@
   <eClassifiers xsi:type="ecore:EClass" name="Network">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="networkElement" upperBound="-1"
-        eType="#//NetworkElement" containment="true"/>
+        eType="#//NetworkElement" containment="true" eOpposite="#//NetworkElement/network"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="NetworkElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="NetworkElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="network" lowerBound="1"
+        eType="#//Network" eOpposite="#//Network/networkElement"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="State" eSuperTypes="#//NetworkElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="tokenNb" lowerBound="1"
