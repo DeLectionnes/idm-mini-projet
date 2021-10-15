@@ -8,7 +8,7 @@
 [let wds : OrderedSet(WorkDefinition) = aProcess.getWDs() ] 
 	[if (wds->size() > 0)]
 		[for (wd : WorkDefinition | wds)][comment
-			/]- <> [wd.name + 'Finished'/]
+			/]- <> [wd.name + 'Finished'/];
 		[/for]
 	[/if]
 [/let]

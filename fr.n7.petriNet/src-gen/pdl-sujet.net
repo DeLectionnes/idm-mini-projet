@@ -16,12 +16,12 @@ pl RedactionTestsReady (1)
 pl RedactionTestsStarted (0)
 pl RedactionTestsRunning (0)
 pl RedactionTestsFinished (0)
-tr ConceptionStart [0;w[ ConceptionReady*1  -> ConceptionStarted ConceptionRunning
-tr ConceptionFinish [0;w[ ConceptionRunning*1  -> ConceptionFinished
-tr RedactionDocStart [0;w[ RedactionDocReady*1 ConceptionStarted?1 -> RedactionDocStarted RedactionDocRunning
-tr RedactionDocFinish [0;w[ RedactionDocRunning*1 ConceptionFinished?1 -> RedactionDocFinished
-tr ProgrammationStart [0;w[ ProgrammationReady*1 ConceptionFinished?1 -> ProgrammationStarted ProgrammationRunning
-tr ProgrammationFinish [0;w[ ProgrammationRunning*1  -> ProgrammationFinished
-tr RedactionTestsStart [0;w[ RedactionTestsReady*1 ConceptionStarted?1 -> RedactionTestsStarted RedactionTestsRunning
-tr RedactionTestsFinish [0;w[ RedactionTestsRunning*1 ProgrammationFinished?1 -> RedactionTestsFinished
+tr ConceptionStart ConceptionReady*1  -> ConceptionStarted ConceptionRunning
+tr ConceptionFinish ConceptionRunning*1  -> ConceptionFinished
+tr RedactionDocStart RedactionDocReady*1 ConceptionStarted?1 -> RedactionDocStarted RedactionDocRunning
+tr RedactionDocFinish RedactionDocRunning*1 ConceptionFinished?1 -> RedactionDocFinished
+tr ProgrammationStart ProgrammationReady*1 ConceptionFinished?1 -> ProgrammationStarted ProgrammationRunning
+tr ProgrammationFinish ProgrammationRunning*1  -> ProgrammationFinished
+tr RedactionTestsStart RedactionTestsReady*1 ConceptionStarted?1 -> RedactionTestsStarted RedactionTestsRunning
+tr RedactionTestsFinish RedactionTestsRunning*1 ProgrammationFinished?1 -> RedactionTestsFinished
 

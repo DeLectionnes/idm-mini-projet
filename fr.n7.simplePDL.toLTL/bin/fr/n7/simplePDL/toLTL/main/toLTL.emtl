@@ -23,7 +23,7 @@
                   <eType xsi:type="ocl.ecore:PrimitiveType" href="http://www.eclipse.org/ocl/1.1.0/oclstdlib.ecore#/0/String"/>
                 </argument>
               </body>
-              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol="&#xA;"/>
+              <body xsi:type="ocl.ecore:StringLiteralExp" stringSymbol=";&#xA;"/>
               <loopVariable name="wd">
                 <eType xsi:type="ecore:EClass" href="http://simplepdl#//WorkDefinition"/>
               </loopVariable>
@@ -262,27 +262,27 @@
   <ecore:EAnnotation source="positions">
     <eAnnotations source="positions.0" references="/0/processtoLTL">
       <details key="start" value="66"/>
-      <details key="end" value="387"/>
+      <details key="end" value="388"/>
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.1" references="/0/processtoLTL/%">
       <details key="start" value="134"/>
-      <details key="end" value="375"/>
+      <details key="end" value="376"/>
       <details key="line" value="7"/>
     </eAnnotations>
     <eAnnotations source="positions.2" references="/0/processtoLTL/%/%">
       <details key="start" value="182"/>
-      <details key="end" value="367"/>
+      <details key="end" value="368"/>
       <details key="line" value="8"/>
     </eAnnotations>
     <eAnnotations source="positions.3" references="/0/processtoLTL/%/%/%">
       <details key="start" value="244"/>
-      <details key="end" value="360"/>
+      <details key="end" value="361"/>
       <details key="line" value="9"/>
     </eAnnotations>
     <eAnnotations source="positions.4" references="/0/processtoLTL/%/%/%/%">
       <details key="start" value="269"/>
-      <details key="end" value="353"/>
+      <details key="end" value="354"/>
       <details key="line" value="10"/>
     </eAnnotations>
     <eAnnotations source="positions.5" references="/0/processtoLTL/%/%/%/%/%">
@@ -312,8 +312,8 @@
     </eAnnotations>
     <eAnnotations source="positions.10" references="/0/processtoLTL/%/%/%/%/%.2">
       <details key="start" value="344"/>
-      <details key="end" value="345"/>
-      <details key="line" value="12"/>
+      <details key="end" value="346"/>
+      <details key="line" value="11"/>
     </eAnnotations>
     <eAnnotations source="positions.11" references="/0/processtoLTL/%/%/%/%/wd">
       <details key="start" value="275"/>
@@ -391,78 +391,78 @@
       <details key="line" value="5"/>
     </eAnnotations>
     <eAnnotations source="positions.26" references="/0/getWDs">
-      <details key="start" value="389"/>
-      <details key="end" value="586"/>
+      <details key="start" value="390"/>
+      <details key="end" value="587"/>
       <details key="line" value="18"/>
     </eAnnotations>
     <eAnnotations source="positions.27" references="/0/getWDs/p">
-      <details key="start" value="410"/>
-      <details key="end" value="420"/>
+      <details key="start" value="411"/>
+      <details key="end" value="421"/>
       <details key="line" value="18"/>
     </eAnnotations>
     <eAnnotations source="positions.28" references="/0/getWDs/%">
-      <details key="start" value="455"/>
-      <details key="end" value="583"/>
+      <details key="start" value="456"/>
+      <details key="end" value="584"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.29" references="/0/getWDs/%/collect">
-      <details key="start" value="455"/>
-      <details key="end" value="564"/>
+      <details key="start" value="456"/>
+      <details key="end" value="565"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.30" references="/0/getWDs/%/collect/select">
-      <details key="start" value="455"/>
-      <details key="end" value="517"/>
+      <details key="start" value="456"/>
+      <details key="end" value="518"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.31" references="/0/getWDs/%/collect/select/%">
-      <details key="start" value="455"/>
-      <details key="end" value="472"/>
+      <details key="start" value="456"/>
+      <details key="end" value="473"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.32" references="/0/getWDs/%/collect/select/%/p">
-      <details key="start" value="455"/>
-      <details key="end" value="456"/>
+      <details key="start" value="456"/>
+      <details key="end" value="457"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.33" references="/0/getWDs/%/collect/select/%.1">
-      <details key="start" value="486"/>
-      <details key="end" value="515"/>
+      <details key="start" value="487"/>
+      <details key="end" value="516"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.34" references="/0/getWDs/%/collect/select/%.1/e">
-      <details key="start" value="486"/>
-      <details key="end" value="487"/>
+      <details key="start" value="487"/>
+      <details key="end" value="488"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.35" references="/0/getWDs/%/collect/select/%.1/%">
-      <details key="start" value="500"/>
-      <details key="end" value="514"/>
+      <details key="start" value="501"/>
+      <details key="end" value="515"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.36" references="/0/getWDs/%/collect/select/e">
-      <details key="start" value="482"/>
-      <details key="end" value="483"/>
+      <details key="start" value="483"/>
+      <details key="end" value="484"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.37" references="/0/getWDs/%/collect/%">
-      <details key="start" value="535"/>
-      <details key="end" value="562"/>
+      <details key="start" value="536"/>
+      <details key="end" value="563"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.38" references="/0/getWDs/%/collect/%/e">
-      <details key="start" value="535"/>
-      <details key="end" value="536"/>
+      <details key="start" value="536"/>
+      <details key="end" value="537"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.39" references="/0/getWDs/%/collect/%/%">
-      <details key="start" value="547"/>
-      <details key="end" value="561"/>
+      <details key="start" value="548"/>
+      <details key="end" value="562"/>
       <details key="line" value="0"/>
     </eAnnotations>
     <eAnnotations source="positions.40" references="/0/getWDs/%/collect/e">
-      <details key="start" value="531"/>
-      <details key="end" value="532"/>
+      <details key="start" value="532"/>
+      <details key="end" value="533"/>
       <details key="line" value="0"/>
     </eAnnotations>
   </ecore:EAnnotation>

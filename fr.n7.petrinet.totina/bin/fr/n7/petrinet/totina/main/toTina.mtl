@@ -38,7 +38,7 @@ net [aNetwork.name/]
 [/template]
 
 [template public transitionToTina(tr : Transition, arcs : OrderedSet(Arc), ra : OrderedSet(ReadArc)) post (trim()) ]
-	tr [tr.name/] ['['/]0;w['['/] [tr.writePreArcs(arcs)/] [tr.writeRA(ra)/] -> [tr.writePostArcs(arcs)/]
+	tr [tr.name/] [tr.writePreArcs(arcs)/] [tr.writeRA(ra)/] -> [tr.writePostArcs(arcs)/]
 [/template]
 
 [template public writePreArcs(tr : Transition, arcs : OrderedSet(Arc)) post (trim()) ]
