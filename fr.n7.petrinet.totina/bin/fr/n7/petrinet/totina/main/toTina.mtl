@@ -38,14 +38,14 @@ net [aNetwork.name/]
 [/template]
 
 [template public transitionToTina(tr : Transition, arcs : OrderedSet(Arc), ra : OrderedSet(ReadArc)) post (trim()) ]
-	tr [tr.name/] ['['/]0;w['['/] [tr.writePreArcs(arcs)/][tr.writeRA(ra)/] -> [tr.writePostArcs(arcs)/]
+	tr [tr.name/] ['['/]0;w['['/] [tr.writePreArcs(arcs)/] [tr.writeRA(ra)/] -> [tr.writePostArcs(arcs)/]
 [/template]
 
 [template public writePreArcs(tr : Transition, arcs : OrderedSet(Arc)) post (trim()) ]
 	[if (arcs->size() > 0)][comment
 		/][for (arc : Arc | arcs)][comment
 			/][if (arc.transition=tr and arc.towardTransition>0)][comment
-				/] [arc.state.name/]*[arc.towardTransition/][comment
+				/] [arc.state.name/]*[arc.towardTransition/] [comment
 			/][/if]
 		[/for]
 	[/if]
@@ -55,7 +55,7 @@ net [aNetwork.name/]
 	[if (arcs->size() > 0)][comment
 		/][for (arc : Arc | arcs)][comment
 			/][if (arc.transition=tr and arc.towardState>0)][comment
-				/] arc.state.name/][comment
+				/] [arc.state.name/][comment
 			/][/if]
 		[/for]
 	[/if]
@@ -65,7 +65,7 @@ net [aNetwork.name/]
 	[if (ras->size() > 0)][comment
 		/][for (ra : ReadArc | ras)][comment
 			/][if (ra.transition=tr)][comment
-				/] [ra.state.name/]?[ra.towardTransition/][comment
+				/] [ra.state.name/]?[ra.towardTransition/] [comment
 			/][/if]
 		[/for]
 	[/if]
