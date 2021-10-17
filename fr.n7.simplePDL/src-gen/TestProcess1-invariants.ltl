@@ -1,0 +1,22 @@
+<> (ConceptionReady => ConceptionRunning);
+<> (ConceptionReady => ConceptionStarted);
+ConceptionRunning => ConceptionFinished;
+
+<> (RedactionDocReady => RedactionDocRunning);
+<> (RedactionDocReady => RedactionDocStarted);
+RedactionDocRunning => RedactionDocFinished;
+
+<> (ProgrammationReady => ProgrammationRunning);
+<> (ProgrammationReady => ProgrammationStarted);
+ProgrammationRunning => ProgrammationFinished;
+
+<> (RedactionTestsReady => RedactionTestsRunning);
+<> (RedactionTestsReady => RedactionTestsStarted);
+RedactionTestsRunning => RedactionTestsFinished;
+
+
+ConceptionFinished => ProgrammationStart;
+ConceptionStarted => RedactionDocStart;
+ConceptionFinished => RedactionDocFinish;
+ConceptionStarted => RedactionTestsStart;
+ProgrammationFinished => RedactionTestsFinish;

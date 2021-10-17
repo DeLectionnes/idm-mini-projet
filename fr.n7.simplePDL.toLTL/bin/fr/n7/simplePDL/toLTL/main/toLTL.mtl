@@ -4,7 +4,8 @@
 
 [template public processtoLTL(aProcess : Process)]
 [comment @main/]
-[file (aProcess.name + '.ltl', false, 'UTF-8')]
+[comment file : *-finish.ltl/]
+[file (aProcess.name + '-finish.ltl', false, 'UTF-8')]
 [let wds : OrderedSet(WorkDefinition) = aProcess.getWDs() ] 
 	[if (wds->size() > 0)]
 		[for (wd : WorkDefinition | wds)][comment
@@ -14,6 +15,7 @@
 [/let]
 [/file]
 [/template]
+
 
 [query public getWDs(p: Process) : OrderedSet(WorkDefinition) = 
 	p.processElements->select( e | e.oclIsTypeOf(WorkDefinition) )
