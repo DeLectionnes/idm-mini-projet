@@ -65,6 +65,14 @@
             </style>
           </conditionnalStyles>
         </edgeMappings>
+        <edgeMappings name="RessourceSupplyEdge" sourceMapping="//@ownedViewpoints[name='simplepdlViewpoint']/@ownedRepresentations[name='ProcessDiagram']/@defaultLayer/@nodeMappings[name='RessourceNode']" targetMapping="//@ownedViewpoints[name='simplepdlViewpoint']/@ownedRepresentations[name='ProcessDiagram']/@defaultLayer/@nodeMappings[name='WDNode']" targetFinderExpression="feature:successor" sourceFinderExpression="feature:predecessor" domainClass="simplepdl::RessourceSupply" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" labelExpression="feature:quantityNeeded">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
         <toolSections name="Elements">
           <ownedTools xsi:type="tool:NodeCreationDescription" name="WDCreation" nodeMappings="//@ownedViewpoints[name='simplepdlViewpoint']/@ownedRepresentations[name='ProcessDiagram']/@defaultLayer/@nodeMappings[name='WDNode']">
             <variable name="container"/>
@@ -79,9 +87,9 @@
             <variable name="container"/>
             <viewVariable name="containerView"/>
             <initialOperation>
-              <firstModelOperations xsi:type="tool_1:SetValue" featureName="quantity" valueExpression="0">
-                <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/]">
-                  <subModelOperations xsi:type="tool_1:CreateInstance" typeName="simplepdl::Ressource" referenceName="processElements"/>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[container/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="simplepdl::Ressource" referenceName="processElements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="quantity" valueExpression="0"/>
                 </subModelOperations>
               </firstModelOperations>
             </initialOperation>
@@ -98,6 +106,26 @@
                 <subModelOperations xsi:type="tool_1:CreateInstance" typeName="simplepdl::WorkSequence" referenceName="processElements">
                   <subModelOperations xsi:type="tool_1:SetValue" featureName="predecessor" valueExpression="[source/]">
                     <subModelOperations xsi:type="tool_1:SetValue" featureName="successor" valueExpression="[target/]"/>
+                  </subModelOperations>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:EdgeCreationDescription" name="Ressource Supply Creation" edgeMappings="//@ownedViewpoints[name='simplepdlViewpoint']/@ownedRepresentations[name='ProcessDiagram']/@defaultLayer/@edgeMappings[name='RessourceSupplyEdge']">
+            <sourceVariable name="source"/>
+            <targetVariable name="target"/>
+            <sourceViewVariable name="sourceView"/>
+            <targetViewVariable name="targetView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.eContainer()/]">
+                <subModelOperations xsi:type="tool_1:CreateInstance" typeName="simplepdl::RessourceSupply" referenceName="processElements">
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="predecessor" valueExpression="[source/]"/>
+                  <subModelOperations xsi:type="tool_1:SetValue" featureName="successor" valueExpression="[target/]"/>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.predecessor/]">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="linkToSequence" valueExpression="[instance/]"/>
+                  </subModelOperations>
+                  <subModelOperations xsi:type="tool_1:ChangeContext" browseExpression="[self.successor/]">
+                    <subModelOperations xsi:type="tool_1:SetValue" featureName="ressourceNeeded" valueExpression="[instance/]"/>
                   </subModelOperations>
                 </subModelOperations>
               </firstModelOperations>
