@@ -10,6 +10,65 @@ def: getProcess(): simplepdl!Process =
 		->select(p | p.processElements->includes(self))
 		->asSequence()->first();
 
+
+--Helper pour trouver une place avec un nom correspondant à la work sequence
+helper context petrinet!Network
+def: getStateFromWS(ws: simplepdl!WorkSequence): petrinet!State =
+	if (ws.linkType = simplepdl!WorkSequenceType.startToStart or ws.linkType = simplepdl!WorkSequenceType.startToFinish) then
+		self.NetworkElements
+		->select(p | p.oclIsTypeOf(petrinet!State))
+		->collect(p | p.oclAsType(petrinet!State))
+		->select(p | p.name = ws.name + 'Started')
+		->asSequence()->first()
+	else
+		self.NetworkElements
+		->select(p | p.oclIsTypeOf(petrinet!State))
+		->collect(p | p.oclAsType(petrinet!State))
+		->select(p | p.name = ws.name + 'Finished')
+		->asSequence()->first()
+	endif;
+
+--Helper pour trouver une transition avec un nom correspondant à la work sequence
+helper context petrinet!Network
+def: getTransitionFromWS(ws: simplepdl!WorkSequence): petrinet!Transition =
+	if (ws.linkType = simplepdl!WorkSequenceType.startToStart or ws.linkType = simplepdl!WorkSequenceType.finishToStart) then
+		self.NetworkElements
+		->select(p | p.oclIsTypeOf(petrinet!Transition))
+		->collect(p | p.oclAsType(petrinet!Transition))
+		->select(p | p.name = ws.name + 'Start')
+		->asSequence()->first()
+	else
+		self.NetworkElements
+		->select(p | p.oclIsTypeOf(petrinet!Transition))
+		->collect(p | p.oclAsType(petrinet!Transition))
+		->select(p | p.name = ws.name + 'Finish')
+		->asSequence()->first()
+	endif;
+
+helper context petrinet!Network
+def: getStateFromRSS(rss: simplepdl!RessourceSupply): petrinet!State =
+		self.NetworkElements
+		->select(p | p.oclIsTypeOf(petrinet!State))
+		->collect(p | p.oclAsType(petrinet!State))
+		->select(p | p.name = 'Ressource' + rss.predecessor.name)
+		->asSequence()->first();
+
+helper context petrinet!Network
+def: getInitialTransitionFromRSS(rss: simplepdl!RessourceSupply): petrinet!Transition =
+		self.NetworkElements
+		->select(p | p.oclIsTypeOf(petrinet!Transition))
+		->collect(p | p.oclAsType(petrinet!Transition))
+		->select(p | p.name = rss.successor.name + 'Start')
+		->asSequence()->first();
+
+helper context petrinet!Network
+def: getFinalTransitionFromRSS(rss: simplepdl!RessourceSupply): petrinet!Transition =
+		self.NetworkElements
+		->select(p | p.oclIsTypeOf(petrinet!Transition))
+		->collect(p | p.oclAsType(petrinet!Transition))
+		->select(p | p.name = rss.successor.name + 'Finish')
+		->asSequence()->first();
+
 -- Traduire un Process en un PetriNet de m�me nom
 rule Process2PetriNet {
 	from p: simplepdl!Process
@@ -22,27 +81,29 @@ rule WorkDefinition2PetriNet {
 	to
 		-- PLACES d'une WorkDefinition
 		s_ready: petrinet!State(
-				name <- wd.name + '_ready',
+				name <- wd.name + 'Ready',
 				tokenNb <- 1,
 				network <- wd.getProcess()),
 		s_started: petrinet!State(
-				name <- wd.name + '_started',
+				name <- wd.name + 'Started',
 				tokenNb <- 0,
 				network <- wd.getProcess()),
 		s_running: petrinet!State(
-				name <- wd.name + '_running',
+				name <- wd.name + 'Running',
 				tokenNb <- 0,
 				network <- wd.getProcess()),
 		s_finished: petrinet!State(
-				name <- wd.name + '_finished',
+				name <- wd.name + 'Finished',
 				tokenNb <- 0,
 				network <- wd.getProcess()),
+		--Transitions d'une WD
 		t_start: petrinet!Transition(
-				name <- wd.name + '_start',
+				name <- wd.name + 'Start',
 				network <- wd.getProcess()),
 		t_finish: petrinet!Transition(
-				name <- wd.name + '_finish',
+				name <- wd.name + 'Finish',
 				network <- wd.getProcess()),
+		--Arcs d'une WD
 		arc_ready2start: petrinet!Arc(
 				towardState <- 0,
 				towardTransition <- 1,
@@ -73,4 +134,41 @@ rule WorkDefinition2PetriNet {
 				state <- s_finished,
 				transition <- t_finish,
 				network <- wd.getProcess())
+}
+
+rule WorkSequence2PetriNet {
+	from ws: simplepdl!WorkSequence
+	to 
+	readArc: petrinet!ReadArc(
+		network <- ws.getProcess(),
+		towardTransition <- 1,
+		state <- readArc.network.getStateFromWS(ws),
+		transition <- readArc.network.getTransitionFromWS(ws))
+}
+
+rule Ressource2PetriNet {
+	from rs: simplepdl!Ressource
+	to
+	state: petrinet!State(
+		network <- rs.getProcess(),
+		name <- 'Ressource'+rs.name,
+		tokenNb <- rs.quantity)
+}
+
+rule RessourceSupply2PetriNet {
+	from rss: simplepdl!RessourceSupply
+	to
+	arcLivraison: petriNet!Arc(
+		network <- rss.getProcess(),
+		towardState <- 0,
+		towardTransition <- rss.quantityNeeded,
+		state <- arcLivraison.network.getStateFromRSS(rss),
+		transition <- arcLivraison.network.getInitialTransitionFromRSS(rss)),
+		
+	arcRecuperation: petriNet!Arc(
+		network <- rss.getProcess(),
+		towardState <- rss.quantityNeeded,
+		towardTransition <- 0,
+		state <- arcRecuperation.network.getStateFromRSS(rss),
+		transition <- arcRecuperation.network.getFinalTransitionFromRSS(rss))
 }

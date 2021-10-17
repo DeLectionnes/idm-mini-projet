@@ -3,10 +3,18 @@
   <processElements xsi:type="simplepdl:WorkDefinition" linksToSuccessors="//@processElements.4 //@processElements.5 //@processElements.6 //@processElements.7" name="Conception"/>
   <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.4 //@processElements.5" name="RedactionDoc"/>
   <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.6" linksToSuccessors="//@processElements.8" name="Programmation"/>
-  <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.7 //@processElements.8" name="RedactionTests"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.8" name="RedactionTests" ressourceNeeded="//@processElements.16"/>
   <processElements xsi:type="simplepdl:WorkSequence" predecessor="//@processElements.0" successor="//@processElements.1"/>
-  <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToStart" predecessor="//@processElements.0" successor="//@processElements.1"/>
+  <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToFinish" predecessor="//@processElements.0" successor="//@processElements.1"/>
   <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToStart" predecessor="//@processElements.0" successor="//@processElements.2"/>
-  <processElements xsi:type="simplepdl:WorkSequence" predecessor="//@processElements.0" successor="//@processElements.3"/>
+  <processElements xsi:type="simplepdl:WorkSequence" linkType="startToFinish" predecessor="//@processElements.0"/>
   <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToFinish" predecessor="//@processElements.2" successor="//@processElements.3"/>
+  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.3"/>
+  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.1"/>
+  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.2"/>
+  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.2"/>
+  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.1"/>
+  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.2"/>
+  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.3"/>
+  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.3"/>
 </simplepdl:Process>
