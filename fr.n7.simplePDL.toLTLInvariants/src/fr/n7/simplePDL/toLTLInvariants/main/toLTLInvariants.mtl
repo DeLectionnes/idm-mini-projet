@@ -33,7 +33,7 @@
 <> ([name + 'Ready'/] => [name + 'Started'/]);
 [name + 'Running'/] => [name + 'Finished'/];
 
-['['/][']'/] [name + 'Ready + ' + name + 'Running + ' + name + 'Finished'/] = 1;
+['['/][']'/] ([name + 'Ready + ' + name + 'Running + ' + name + 'Finished'/] = 1);
 [/let]
 [/template]
 
