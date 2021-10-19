@@ -1,20 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <simplepdl:Process xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simplepdl="http://simplepdl" name="developpement">
-  <processElements xsi:type="simplepdl:WorkDefinition" linksToSuccessors="//@processElements.4 //@processElements.5 //@processElements.6 //@processElements.7" name="Conception"/>
-  <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.4 //@processElements.5" name="RedactionDoc"/>
-  <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.6" linksToSuccessors="//@processElements.8" name="Programmation"/>
-  <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.8" name="RedactionTests" ressourceNeeded="//@processElements.16"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" linksToSuccessors="//@processElements.4 //@processElements.5 //@processElements.6" name="Conception"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.4 //@processElements.5" name="RedactionDoc" ressourceNeeded="//@processElements.10"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.6" linksToSuccessors="//@processElements.7" name="Programmation"/>
+  <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.7" name="RedactionTests" ressourceNeeded="//@processElements.9"/>
   <processElements xsi:type="simplepdl:WorkSequence" predecessor="//@processElements.0" successor="//@processElements.1"/>
   <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToFinish" predecessor="//@processElements.0" successor="//@processElements.1"/>
   <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToStart" predecessor="//@processElements.0" successor="//@processElements.2"/>
-  <processElements xsi:type="simplepdl:WorkSequence" linkType="startToFinish" predecessor="//@processElements.0"/>
   <processElements xsi:type="simplepdl:WorkSequence" linkType="finishToFinish" predecessor="//@processElements.2" successor="//@processElements.3"/>
-  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.3"/>
-  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.1"/>
-  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.2"/>
-  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.2"/>
-  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.1"/>
-  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.2"/>
-  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.3"/>
-  <processElements xsi:type="simplepdl:RessourceSupply" successor="//@processElements.3"/>
+  <processElements xsi:type="simplepdl:Ressource" name="Tasse de café" linkToSequence="//@processElements.9 //@processElements.10" quantity="2"/>
+  <processElements xsi:type="simplepdl:RessourceSupply" quantityNeeded="1" successor="//@processElements.3" predecessor="//@processElements.8"/>
+  <processElements xsi:type="simplepdl:RessourceSupply" quantityNeeded="2" successor="//@processElements.1" predecessor="//@processElements.8"/>
+  <processElements xsi:type="simplepdl:Guidance" elements="//@processElements.3 //@processElements.7" text="Lorem ipsum dolor sit amet"/>
 </simplepdl:Process>
