@@ -67,12 +67,12 @@
 [/template]
 
 [template public WriteRS(rs : Ressource) post (trim()) ]
-['[]'/] ([rs.quantity + ' = Ressource' + rs.name/][comment
+['[]'/] ([rs.quantity + ' = ' + rs.name + 'Ressource'/][comment
 /][let rsLs : OrderedSet(RessourceSupply) = rs.linkToSequence][comment
 	/][if (rsLs->size() > 0)]
 		[for (rl : RessourceSupply | rsLs)][comment
-			/][' + ' + rl.quantityNeeded + '*' + rl.successor + 'Running'/]
-		[/for]
+			/][' + ' + rl.quantityNeeded + '*' + rl.successor.name + 'Running'/][comment
+		/][/for]
 	[/if]
 [/let][comment
 /]);

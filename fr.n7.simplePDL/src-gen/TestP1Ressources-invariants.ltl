@@ -29,3 +29,8 @@ ConceptionFinished => RedactionDocFinish;
 ConceptionStarted => RedactionTestsStart;
 ProgrammationFinished => RedactionTestsFinish;
 
+[] (3 = concepteurRessource + 2*invalidRunning);
+[] (2 = developpeurRessource + 2*invalidRunning);
+[] (4 = machineRessource + 2*invalidRunning + 1*invalidRunning + 3*invalidRunning + 2*invalidRunning);
+[] (1 = redacteurRessource + 1*invalidRunning);
+[] (2 = testeurRessource + 1*invalidRunning);

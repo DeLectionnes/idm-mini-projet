@@ -1,0 +1,32 @@
+
+net TestP1Ressources
+pl ConceptionReady (1)
+pl ConceptionStarted (0)
+pl ConceptionRunning (0)
+pl ConceptionFinished (0)
+pl RedactionDocReady (1)
+pl RedactionDocStarted (0)
+pl RedactionDocRunning (0)
+pl RedactionDocFinished (0)
+pl ProgrammationReady (1)
+pl ProgrammationStarted (0)
+pl ProgrammationRunning (0)
+pl ProgrammationFinished (0)
+pl RedactionTestsReady (1)
+pl RedactionTestsStarted (0)
+pl RedactionTestsRunning (0)
+pl RedactionTestsFinished (0)
+pl Ressourceconcepteur (3)
+pl Ressourcedeveloppeur (2)
+pl Ressourcemachine (4)
+pl Ressourceredacteur (1)
+pl Ressourcetesteur (2)
+tr ConceptionStart ConceptionReady*1 Ressourceconcepteur*2 Ressourcemachine*2  -> ConceptionStarted ConceptionRunning
+tr ConceptionFinish ConceptionRunning*1  -> ConceptionFinished Ressourceconcepteur Ressourcemachine
+tr RedactionDocStart RedactionDocReady*1 Ressourcemachine*1 Ressourceredacteur*1 ConceptionStarted?1 -> RedactionDocStarted RedactionDocRunning
+tr RedactionDocFinish RedactionDocRunning*1 ConceptionFinished?1 -> RedactionDocFinished Ressourcemachine Ressourceredacteur
+tr ProgrammationStart ProgrammationReady*1 Ressourcedeveloppeur*2 Ressourcemachine*3 ConceptionFinished?1 -> ProgrammationStarted ProgrammationRunning
+tr ProgrammationFinish ProgrammationRunning*1  -> ProgrammationFinished Ressourcedeveloppeur Ressourcemachine
+tr RedactionTestsStart RedactionTestsReady*1 Ressourcemachine*2 Ressourcetesteur*1 ConceptionStarted?1 -> RedactionTestsStarted RedactionTestsRunning
+tr RedactionTestsFinish RedactionTestsRunning*1 ProgrammationFinished?1 -> RedactionTestsFinished Ressourcemachine Ressourcetesteur
+
