@@ -24,6 +24,15 @@
 		[/for]
 	[/if]
 [/let]
+
+[comment RS/]
+[let rss : OrderedSet(Ressource) = aProcess.getRSs() ] 
+	[if (rss->size() > 0)]
+		[for (rs : Ressource | rss)][comment
+			/][rs.WriteRS()/]
+		[/for]
+	[/if]
+[/let]
 [/file]
 [/template]
 
@@ -33,7 +42,7 @@
 <> ([name + 'Ready'/] => [name + 'Started'/]);
 [name + 'Running'/] => [name + 'Finished'/];
 
-['['/][']'/] ([name + 'Ready + ' + name + 'Running + ' + name + 'Finished'/] = 1);
+['[]'/] ([name + 'Ready + ' + name + 'Running + ' + name + 'Finished'/] = 1);
 [/let]
 [/template]
 
@@ -48,13 +57,25 @@
 			[else]
 				[if ws.linkType = WorkSequenceType::startToFinish]
 					[pred + 'Started'/] => [succ + 'Finish'/];
-				[else] [comment ws.linkType = WorkSequenceType::finishToFinish/]
+				[else]
 					[pred + 'Finished'/] => [succ + 'Finish'/];
 				[/if]
 			[/if]
 		[/if]
 	[/let]
 [/let]
+[/template]
+
+[template public WriteRS(rs : Ressource) post (trim()) ]
+['[]'/] ([rs.quantity + ' = Ressource' + rs.name/][comment
+/][let rsLs : OrderedSet(RessourceSupply) = rs.linkToSequence][comment
+	/][if (rsLs->size() > 0)]
+		[for (rl : RessourceSupply | rsLs)][comment
+			/][' + ' + rl.quantityNeeded + '*' + rl.successor + 'Running'/]
+		[/for]
+	[/if]
+[/let][comment
+/]);
 [/template]
 
 
@@ -66,6 +87,11 @@
 [query public getWSs(p: Process) : OrderedSet(WorkSequence) = 
 	p.processElements->select( e | e.oclIsTypeOf(WorkSequence) )
 		->collect( e | e.oclAsType(WorkSequence) )
+		->asOrderedSet()
+/]
+[query public getRSs(p: Process) : OrderedSet(Ressource) = 
+	p.processElements->select( e | e.oclIsTypeOf(Ressource) )
+		->collect( e | e.oclAsType(Ressource) )
 		->asOrderedSet()
 /]
 

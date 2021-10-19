@@ -17,9 +17,9 @@ op finished = [let wd1 : WorkDefinition = wds->asSequence()->at(1)][comment
 				[/let]
 				[/let];
 
-['['/][']'/] (finished => dead);
-['['/][']'/] <> dead;
-['['/][']'/] (dead => finished);
+['[]'/] (finished => dead);
+['[]'/] <> dead;
+['[]'/] (dead => finished);
 - <> finished;
 [/if]
 [/let]
