@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<petrinet:Network xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:petrinet="http://petrinet" name="developpement-ressources">
+  <networkElement xsi:type="petrinet:State" name="ConceptionReady" tokenNb="1" arcs="//@networkElement.6"/>
+  <networkElement xsi:type="petrinet:State" name="ConceptionStarted" arcs="//@networkElement.7" ReadArcs="//@networkElement.44 //@networkElement.45"/>
+  <networkElement xsi:type="petrinet:State" name="ConceptionRunning" arcs="//@networkElement.8 //@networkElement.9"/>
+  <networkElement xsi:type="petrinet:State" name="ConceptionFinished" arcs="//@networkElement.10" ReadArcs="//@networkElement.46"/>
+  <networkElement xsi:type="petrinet:Transition" name="ConceptionStart" arcs="//@networkElement.6 //@networkElement.7 //@networkElement.8 //@networkElement.55"/>
+  <networkElement xsi:type="petrinet:Transition" name="ConceptionFinish" arcs="//@networkElement.9 //@networkElement.10 //@networkElement.56" ReadArcs="//@networkElement.48"/>
+  <networkElement xsi:type="petrinet:Arc" towardTransition="1" transition="//@networkElement.4" state="//@networkElement.0"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.4" state="//@networkElement.1"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.4" state="//@networkElement.2"/>
+  <networkElement xsi:type="petrinet:Arc" towardTransition="1" transition="//@networkElement.5" state="//@networkElement.2"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.5" state="//@networkElement.3"/>
+  <networkElement xsi:type="petrinet:State" name="ProgrammationReady" tokenNb="1" arcs="//@networkElement.17"/>
+  <networkElement xsi:type="petrinet:State" name="ProgrammationStarted" arcs="//@networkElement.18"/>
+  <networkElement xsi:type="petrinet:State" name="ProgrammationRunning" arcs="//@networkElement.19 //@networkElement.20"/>
+  <networkElement xsi:type="petrinet:State" name="ProgrammationFinished" arcs="//@networkElement.21" ReadArcs="//@networkElement.47"/>
+  <networkElement xsi:type="petrinet:Transition" name="ProgrammationStart" arcs="//@networkElement.17 //@networkElement.18 //@networkElement.19 //@networkElement.51" ReadArcs="//@networkElement.46"/>
+  <networkElement xsi:type="petrinet:Transition" name="ProgrammationFinish" arcs="//@networkElement.20 //@networkElement.21 //@networkElement.52"/>
+  <networkElement xsi:type="petrinet:Arc" towardTransition="1" transition="//@networkElement.15" state="//@networkElement.11"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.15" state="//@networkElement.12"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.15" state="//@networkElement.13"/>
+  <networkElement xsi:type="petrinet:Arc" towardTransition="1" transition="//@networkElement.16" state="//@networkElement.13"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.16" state="//@networkElement.14"/>
+  <networkElement xsi:type="petrinet:State" name="Rédaction DocumentationReady" tokenNb="1" arcs="//@networkElement.28"/>
+  <networkElement xsi:type="petrinet:State" name="Rédaction DocumentationStarted" arcs="//@networkElement.29"/>
+  <networkElement xsi:type="petrinet:State" name="Rédaction DocumentationRunning" arcs="//@networkElement.30 //@networkElement.31"/>
+  <networkElement xsi:type="petrinet:State" name="Rédaction DocumentationFinished" arcs="//@networkElement.32" ReadArcs="//@networkElement.48"/>
+  <networkElement xsi:type="petrinet:Transition" name="Rédaction DocumentationStart" arcs="//@networkElement.28 //@networkElement.29 //@networkElement.30 //@networkElement.57" ReadArcs="//@networkElement.44"/>
+  <networkElement xsi:type="petrinet:Transition" name="Rédaction DocumentationFinish" arcs="//@networkElement.31 //@networkElement.32 //@networkElement.58"/>
+  <networkElement xsi:type="petrinet:Arc" towardTransition="1" transition="//@networkElement.26" state="//@networkElement.22"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.26" state="//@networkElement.23"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.26" state="//@networkElement.24"/>
+  <networkElement xsi:type="petrinet:Arc" towardTransition="1" transition="//@networkElement.27" state="//@networkElement.24"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.27" state="//@networkElement.25"/>
+  <networkElement xsi:type="petrinet:State" name="RédactionTestsReady" tokenNb="1" arcs="//@networkElement.39"/>
+  <networkElement xsi:type="petrinet:State" name="RédactionTestsStarted" arcs="//@networkElement.40"/>
+  <networkElement xsi:type="petrinet:State" name="RédactionTestsRunning" arcs="//@networkElement.41 //@networkElement.42"/>
+  <networkElement xsi:type="petrinet:State" name="RédactionTestsFinished" arcs="//@networkElement.43"/>
+  <networkElement xsi:type="petrinet:Transition" name="RédactionTestsStart" arcs="//@networkElement.39 //@networkElement.40 //@networkElement.41 //@networkElement.53" ReadArcs="//@networkElement.45"/>
+  <networkElement xsi:type="petrinet:Transition" name="RédactionTestsFinish" arcs="//@networkElement.42 //@networkElement.43 //@networkElement.54" ReadArcs="//@networkElement.47"/>
+  <networkElement xsi:type="petrinet:Arc" towardTransition="1" transition="//@networkElement.37" state="//@networkElement.33"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.37" state="//@networkElement.34"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.37" state="//@networkElement.35"/>
+  <networkElement xsi:type="petrinet:Arc" towardTransition="1" transition="//@networkElement.38" state="//@networkElement.35"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.38" state="//@networkElement.36"/>
+  <networkElement xsi:type="petrinet:ReadArc" towardTransition="1" transition="//@networkElement.26" state="//@networkElement.1"/>
+  <networkElement xsi:type="petrinet:ReadArc" towardTransition="1" transition="//@networkElement.37" state="//@networkElement.1"/>
+  <networkElement xsi:type="petrinet:ReadArc" towardTransition="1" transition="//@networkElement.15" state="//@networkElement.3"/>
+  <networkElement xsi:type="petrinet:ReadArc" towardTransition="1" transition="//@networkElement.38" state="//@networkElement.14"/>
+  <networkElement xsi:type="petrinet:ReadArc" towardTransition="1" transition="//@networkElement.5" state="//@networkElement.25"/>
+  <networkElement xsi:type="petrinet:State" name="RessourceTasse de café" tokenNb="5" arcs="//@networkElement.51 //@networkElement.52 //@networkElement.53 //@networkElement.54"/>
+  <networkElement xsi:type="petrinet:State" name="RessourcePapier" tokenNb="10" arcs="//@networkElement.55 //@networkElement.56 //@networkElement.57 //@networkElement.58"/>
+  <networkElement xsi:type="petrinet:Arc" towardTransition="3" transition="//@networkElement.15" state="//@networkElement.49"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="3" transition="//@networkElement.16" state="//@networkElement.49"/>
+  <networkElement xsi:type="petrinet:Arc" towardTransition="4" transition="//@networkElement.37" state="//@networkElement.49"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="4" transition="//@networkElement.38" state="//@networkElement.49"/>
+  <networkElement xsi:type="petrinet:Arc" towardTransition="5" transition="//@networkElement.4" state="//@networkElement.50"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="5" transition="//@networkElement.5" state="//@networkElement.50"/>
+  <networkElement xsi:type="petrinet:Arc" towardTransition="5" transition="//@networkElement.26" state="//@networkElement.50"/>
+  <networkElement xsi:type="petrinet:Arc" towardState="5" transition="//@networkElement.27" state="//@networkElement.50"/>
+</petrinet:Network>
