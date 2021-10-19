@@ -67,7 +67,7 @@
 [/template]
 
 [template public WriteRS(rs : Ressource) post (trim()) ]
-['[]'/] ([rs.quantity + ' = ' + rs.name + 'Ressource'/][comment
+['[]'/] ([rs.quantity + ' = Ressource' + rs.name/][comment
 /][let rsLs : OrderedSet(RessourceSupply) = rs.linkToSequence][comment
 	/][if (rsLs->size() > 0)]
 		[for (rl : RessourceSupply | rsLs)][comment
