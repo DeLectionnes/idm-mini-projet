@@ -14,8 +14,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import petrinet.Network;
@@ -114,9 +113,24 @@ public class NetworkImpl extends MinimalEObjectImpl.Container implements Network
 	 */
 	public EList<NetworkElement> getNetworkElement() {
 		if (networkElement == null) {
-			networkElement = new EObjectContainmentEList<NetworkElement>(NetworkElement.class, this, PetrinetPackage.NETWORK__NETWORK_ELEMENT);
+			networkElement = new EObjectContainmentWithInverseEList<NetworkElement>(NetworkElement.class, this, PetrinetPackage.NETWORK__NETWORK_ELEMENT, PetrinetPackage.NETWORK_ELEMENT__NETWORK);
 		}
 		return networkElement;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case PetrinetPackage.NETWORK__NETWORK_ELEMENT:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNetworkElement()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
 
 	/**

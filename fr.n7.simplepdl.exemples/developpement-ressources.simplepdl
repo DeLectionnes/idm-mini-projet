@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<simplepdl:Process xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simplepdl="http://simplepdl" xsi:schemaLocation="http://simplepdl SimplePDL.ecore" name="developpement">
+<simplepdl:Process xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:simplepdl="http://simplepdl" name="developpement-ressources">
   <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.14" linksToSuccessors="//@processElements.4 //@processElements.5 //@processElements.6" name="Conception" ressourceNeeded="//@processElements.12"/>
   <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.6" linksToSuccessors="//@processElements.7" name="Programmation" ressourceNeeded="//@processElements.9"/>
   <processElements xsi:type="simplepdl:WorkDefinition" linksToPredecessors="//@processElements.4" linksToSuccessors="//@processElements.14" name="Rédaction Documentation" ressourceNeeded="//@processElements.13"/>

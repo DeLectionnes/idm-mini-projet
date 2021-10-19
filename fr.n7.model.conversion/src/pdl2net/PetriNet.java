@@ -33,6 +33,7 @@ public class PetriNet {
 				s = myFactory.createState();
 				s.setName(name);
 				s.setTokenNb(TokenNb);
+				s.setNetwork(network);
 			}
 			public State getState() {
 				return s;
@@ -49,6 +50,7 @@ public class PetriNet {
 			public TransitionWrapper(String name) {
 				t = myFactory.createTransition();
 				t.setName(name);
+				t.setNetwork(network);
 			}
 			public Transition getTransition() {
 				hashTransition.put(t.getName(), t);
@@ -68,6 +70,7 @@ public class PetriNet {
 				a.setTowardState(toState);
 				a.setTransition(transition);
 				a.setTowardTransition(toTransition);
+				a.setNetwork(network);
 			}
 			public Arc getArc() {
 				return a;
@@ -85,6 +88,7 @@ public class PetriNet {
 				ra.setState(state);
 				ra.setTransition(transition);
 				ra.setTowardTransition(toTransition);
+				ra.setNetwork(network);
 			}
 			public ReadArc getReadArc() {
 				return ra;

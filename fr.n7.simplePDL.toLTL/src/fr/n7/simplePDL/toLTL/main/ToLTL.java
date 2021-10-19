@@ -24,6 +24,8 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
+import simplepdl.SimplepdlPackage;
+
 /**
  * Entry point of the 'ToLTL' generation module.
  *
@@ -335,7 +337,7 @@ public class ToLTL extends AbstractAcceleoGenerator {
      * 
      * @param resourceSet
      *            The resource set which registry has to be updated.
-     * @generated
+     * @generated NOT
      */
     @Override
     public void registerPackages(ResourceSet resourceSet) {
@@ -372,6 +374,10 @@ public class ToLTL extends AbstractAcceleoGenerator {
          * 
          * To learn more about Package Registration, have a look at the Acceleo documentation (Help -> Help Contents).
          */
+
+        if (!isInWorkspace(SimplepdlPackage.class)) {
+            resourceSet.getPackageRegistry().put(SimplepdlPackage.eNS_URI, SimplepdlPackage.eINSTANCE);
+        }
     }
 
     /**

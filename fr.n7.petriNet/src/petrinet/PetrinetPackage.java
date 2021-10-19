@@ -113,13 +113,22 @@ public interface PetrinetPackage extends EPackage {
 	int NETWORK_ELEMENT = 1;
 
 	/**
+	 * The feature id for the '<em><b>Network</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int NETWORK_ELEMENT__NETWORK = 0;
+
+	/**
 	 * The number of structural features of the '<em>Network Element</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NETWORK_ELEMENT_FEATURE_COUNT = 0;
+	int NETWORK_ELEMENT_FEATURE_COUNT = 1;
 
 	/**
 	 * The number of operations of the '<em>Network Element</em>' class.
@@ -139,6 +148,15 @@ public interface PetrinetPackage extends EPackage {
 	 * @generated
 	 */
 	int STATE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Network</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int STATE__NETWORK = NETWORK_ELEMENT__NETWORK;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -205,6 +223,15 @@ public interface PetrinetPackage extends EPackage {
 	int ARC = 3;
 
 	/**
+	 * The feature id for the '<em><b>Network</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ARC__NETWORK = NETWORK_ELEMENT__NETWORK;
+
+	/**
 	 * The feature id for the '<em><b>Toward State</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -269,6 +296,15 @@ public interface PetrinetPackage extends EPackage {
 	int READ_ARC = 4;
 
 	/**
+	 * The feature id for the '<em><b>Network</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int READ_ARC__NETWORK = NETWORK_ELEMENT__NETWORK;
+
+	/**
 	 * The feature id for the '<em><b>Toward Transition</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -322,6 +358,15 @@ public interface PetrinetPackage extends EPackage {
 	 * @generated
 	 */
 	int TRANSITION = 5;
+
+	/**
+	 * The feature id for the '<em><b>Network</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int TRANSITION__NETWORK = NETWORK_ELEMENT__NETWORK;
 
 	/**
 	 * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -410,6 +455,17 @@ public interface PetrinetPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getNetworkElement();
+
+	/**
+	 * Returns the meta object for the container reference '{@link petrinet.NetworkElement#getNetwork <em>Network</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Network</em>'.
+	 * @see petrinet.NetworkElement#getNetwork()
+	 * @see #getNetworkElement()
+	 * @generated
+	 */
+	EReference getNetworkElement_Network();
 
 	/**
 	 * Returns the meta object for class '{@link petrinet.State <em>State</em>}'.
@@ -663,6 +719,14 @@ public interface PetrinetPackage extends EPackage {
 		 * @generated
 		 */
 		EClass NETWORK_ELEMENT = eINSTANCE.getNetworkElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Network</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference NETWORK_ELEMENT__NETWORK = eINSTANCE.getNetworkElement_Network();
 
 		/**
 		 * The meta object literal for the '{@link petrinet.impl.StateImpl <em>State</em>}' class.

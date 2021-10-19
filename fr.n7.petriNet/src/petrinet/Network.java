@@ -49,11 +49,13 @@ public interface Network extends EObject {
 	/**
 	 * Returns the value of the '<em><b>Network Element</b></em>' containment reference list.
 	 * The list contents are of type {@link petrinet.NetworkElement}.
+	 * It is bidirectional and its opposite is '{@link petrinet.NetworkElement#getNetwork <em>Network</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Network Element</em>' containment reference list.
 	 * @see petrinet.PetrinetPackage#getNetwork_NetworkElement()
-	 * @model containment="true"
+	 * @see petrinet.NetworkElement#getNetwork
+	 * @model opposite="network" containment="true"
 	 * @generated
 	 */
 	EList<NetworkElement> getNetworkElement();

@@ -10,7 +10,9 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//Network/name"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference PetriNet.ecore#//Network/networkElement"/>
     </genClasses>
-    <genClasses ecoreClass="PetriNet.ecore#//NetworkElement"/>
+    <genClasses ecoreClass="PetriNet.ecore#//NetworkElement">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference PetriNet.ecore#//NetworkElement/network"/>
+    </genClasses>
     <genClasses ecoreClass="PetriNet.ecore#//State">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//State/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute PetriNet.ecore#//State/tokenNb"/>
