@@ -6,14 +6,15 @@ import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
-
+import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 import simplepdl.Ressource;
 import simplepdl.RessourceSupply;
 import simplepdl.SimplepdlPackage;
@@ -131,7 +132,7 @@ public class RessourceImpl extends ProcessElementImpl implements Ressource {
 	 */
 	public EList<RessourceSupply> getLinkToSequence() {
 		if (linkToSequence == null) {
-			linkToSequence = new EObjectResolvingEList<RessourceSupply>(RessourceSupply.class, this, SimplepdlPackage.RESSOURCE__LINK_TO_SEQUENCE);
+			linkToSequence = new EObjectWithInverseResolvingEList<RessourceSupply>(RessourceSupply.class, this, SimplepdlPackage.RESSOURCE__LINK_TO_SEQUENCE, SimplepdlPackage.RESSOURCE_SUPPLY__PREDECESSOR);
 		}
 		return linkToSequence;
 	}
@@ -155,6 +156,35 @@ public class RessourceImpl extends ProcessElementImpl implements Ressource {
 		quantity = newQuantity;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, SimplepdlPackage.RESSOURCE__QUANTITY, oldQuantity, quantity));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@SuppressWarnings("unchecked")
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SimplepdlPackage.RESSOURCE__LINK_TO_SEQUENCE:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLinkToSequence()).basicAdd(otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SimplepdlPackage.RESSOURCE__LINK_TO_SEQUENCE:
+				return ((InternalEList<?>)getLinkToSequence()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**

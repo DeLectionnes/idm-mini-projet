@@ -77,11 +77,13 @@ public interface WorkDefinition extends ProcessElement {
 	/**
 	 * Returns the value of the '<em><b>Ressource Needed</b></em>' reference list.
 	 * The list contents are of type {@link simplepdl.RessourceSupply}.
+	 * It is bidirectional and its opposite is '{@link simplepdl.RessourceSupply#getSuccessor <em>Successor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Ressource Needed</em>' reference list.
 	 * @see simplepdl.SimplepdlPackage#getWorkDefinition_RessourceNeeded()
-	 * @model
+	 * @see simplepdl.RessourceSupply#getSuccessor
+	 * @model opposite="successor"
 	 * @generated
 	 */
 	EList<RessourceSupply> getRessourceNeeded();

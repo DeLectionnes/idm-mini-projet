@@ -3,9 +3,9 @@
   <networkElement xsi:type="petrinet:State" name="ConceptionReady" tokenNb="1" arcs="//@networkElement.6"/>
   <networkElement xsi:type="petrinet:State" name="ConceptionStarted" arcs="//@networkElement.7" ReadArcs="//@networkElement.46 //@networkElement.47"/>
   <networkElement xsi:type="petrinet:State" name="ConceptionRunning" arcs="//@networkElement.8 //@networkElement.9"/>
-  <networkElement xsi:type="petrinet:State" name="ConceptionFinished" arcs="//@networkElement.10" ReadArcs="//@networkElement.48"/>
+  <networkElement xsi:type="petrinet:State" name="ConceptionFinished" arcs="//@networkElement.10" ReadArcs="//@networkElement.48 //@networkElement.50"/>
   <networkElement xsi:type="petrinet:Transition" name="ConceptionStart" arcs="//@networkElement.6 //@networkElement.7 //@networkElement.8 //@networkElement.55 //@networkElement.56"/>
-  <networkElement xsi:type="petrinet:Transition" name="ConceptionFinish" arcs="//@networkElement.9 //@networkElement.10" ReadArcs="//@networkElement.50"/>
+  <networkElement xsi:type="petrinet:Transition" name="ConceptionFinish" arcs="//@networkElement.9 //@networkElement.10"/>
   <networkElement xsi:type="petrinet:Arc" towardTransition="1" transition="//@networkElement.4" state="//@networkElement.0"/>
   <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.4" state="//@networkElement.1"/>
   <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.4" state="//@networkElement.2"/>
@@ -25,9 +25,9 @@
   <networkElement xsi:type="petrinet:State" name="RedactionDocumentationReady" tokenNb="1" arcs="//@networkElement.28"/>
   <networkElement xsi:type="petrinet:State" name="RedactionDocumentationStarted" arcs="//@networkElement.29"/>
   <networkElement xsi:type="petrinet:State" name="RedactionDocumentationRunning" arcs="//@networkElement.30 //@networkElement.31"/>
-  <networkElement xsi:type="petrinet:State" name="RedactionDocumentationFinished" arcs="//@networkElement.32" ReadArcs="//@networkElement.50"/>
+  <networkElement xsi:type="petrinet:State" name="RedactionDocumentationFinished" arcs="//@networkElement.32"/>
   <networkElement xsi:type="petrinet:Transition" name="RedactionDocumentationStart" arcs="//@networkElement.28 //@networkElement.29 //@networkElement.30 //@networkElement.57 //@networkElement.58" ReadArcs="//@networkElement.46"/>
-  <networkElement xsi:type="petrinet:Transition" name="RedactionDocumentationFinish" arcs="//@networkElement.31 //@networkElement.32"/>
+  <networkElement xsi:type="petrinet:Transition" name="RedactionDocumentationFinish" arcs="//@networkElement.31 //@networkElement.32" ReadArcs="//@networkElement.50"/>
   <networkElement xsi:type="petrinet:Arc" towardTransition="1" transition="//@networkElement.26" state="//@networkElement.22"/>
   <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.26" state="//@networkElement.23"/>
   <networkElement xsi:type="petrinet:Arc" towardState="1" transition="//@networkElement.26" state="//@networkElement.24"/>
@@ -50,7 +50,7 @@
   <networkElement xsi:type="petrinet:ReadArc" towardTransition="1" transition="//@networkElement.37" state="//@networkElement.1"/>
   <networkElement xsi:type="petrinet:ReadArc" towardTransition="1" transition="//@networkElement.15" state="//@networkElement.3"/>
   <networkElement xsi:type="petrinet:ReadArc" towardTransition="1" transition="//@networkElement.38" state="//@networkElement.14"/>
-  <networkElement xsi:type="petrinet:ReadArc" towardTransition="1" transition="//@networkElement.5" state="//@networkElement.25"/>
+  <networkElement xsi:type="petrinet:ReadArc" towardTransition="1" transition="//@networkElement.27" state="//@networkElement.3"/>
   <networkElement xsi:type="petrinet:Arc" towardTransition="3" transition="//@networkElement.15" state="//@networkElement.44"/>
   <networkElement xsi:type="petrinet:Arc" towardState="3" transition="//@networkElement.15" state="//@networkElement.44"/>
   <networkElement xsi:type="petrinet:Arc" towardTransition="4" transition="//@networkElement.37" state="//@networkElement.44"/>

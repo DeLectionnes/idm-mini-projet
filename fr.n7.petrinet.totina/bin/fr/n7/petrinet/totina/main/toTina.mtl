@@ -55,7 +55,7 @@ net [aNetwork.name/]
 	[if (arcs->size() > 0)][comment
 		/][for (arc : Arc | arcs)][comment
 			/][if (arc.transition=tr and arc.towardState>0)][comment
-				/] [arc.state.name/][comment
+				/] [arc.state.name/]*[arc.towardState/][comment
 			/][/if]
 		[/for]
 	[/if]

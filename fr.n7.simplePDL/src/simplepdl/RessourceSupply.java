@@ -46,12 +46,14 @@ public interface RessourceSupply extends ProcessElement {
 
 	/**
 	 * Returns the value of the '<em><b>Successor</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link simplepdl.WorkDefinition#getRessourceNeeded <em>Ressource Needed</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Successor</em>' reference.
 	 * @see #setSuccessor(WorkDefinition)
 	 * @see simplepdl.SimplepdlPackage#getRessourceSupply_Successor()
-	 * @model required="true"
+	 * @see simplepdl.WorkDefinition#getRessourceNeeded
+	 * @model opposite="ressourceNeeded" required="true"
 	 * @generated
 	 */
 	WorkDefinition getSuccessor();
@@ -68,12 +70,14 @@ public interface RessourceSupply extends ProcessElement {
 
 	/**
 	 * Returns the value of the '<em><b>Predecessor</b></em>' reference.
+	 * It is bidirectional and its opposite is '{@link simplepdl.Ressource#getLinkToSequence <em>Link To Sequence</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Predecessor</em>' reference.
 	 * @see #setPredecessor(Ressource)
 	 * @see simplepdl.SimplepdlPackage#getRessourceSupply_Predecessor()
-	 * @model required="true"
+	 * @see simplepdl.Ressource#getLinkToSequence
+	 * @model opposite="linkToSequence" required="true"
 	 * @generated
 	 */
 	Ressource getPredecessor();

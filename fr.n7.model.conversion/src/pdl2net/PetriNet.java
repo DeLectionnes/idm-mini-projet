@@ -225,7 +225,7 @@ public class PetriNet {
 				throw new AbsentProcessElement(nomSuccesseur);
 			} else {
 				ArcWrapper ressource2WD = new ArcWrapper(ressource,0,start,rsSupply.getQuantityNeeded());
-				ArcWrapper wD2ressource = new ArcWrapper(ressource,rsSupply.getQuantityNeeded(),start,0);
+				ArcWrapper wD2ressource = new ArcWrapper(ressource,rsSupply.getQuantityNeeded(),finish,0);
 				ressource2WD.save();
 				wD2ressource.save();
 			}

@@ -13,8 +13,6 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -161,7 +159,7 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 	 */
 	public EList<RessourceSupply> getRessourceNeeded() {
 		if (ressourceNeeded == null) {
-			ressourceNeeded = new EObjectResolvingEList<RessourceSupply>(RessourceSupply.class, this, SimplepdlPackage.WORK_DEFINITION__RESSOURCE_NEEDED);
+			ressourceNeeded = new EObjectWithInverseResolvingEList<RessourceSupply>(RessourceSupply.class, this, SimplepdlPackage.WORK_DEFINITION__RESSOURCE_NEEDED, SimplepdlPackage.RESSOURCE_SUPPLY__SUCCESSOR);
 		}
 		return ressourceNeeded;
 	}
@@ -179,6 +177,8 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLinksToPredecessors()).basicAdd(otherEnd, msgs);
 			case SimplepdlPackage.WORK_DEFINITION__LINKS_TO_SUCCESSORS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getLinksToSuccessors()).basicAdd(otherEnd, msgs);
+			case SimplepdlPackage.WORK_DEFINITION__RESSOURCE_NEEDED:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRessourceNeeded()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -195,6 +195,8 @@ public class WorkDefinitionImpl extends ProcessElementImpl implements WorkDefini
 				return ((InternalEList<?>)getLinksToPredecessors()).basicRemove(otherEnd, msgs);
 			case SimplepdlPackage.WORK_DEFINITION__LINKS_TO_SUCCESSORS:
 				return ((InternalEList<?>)getLinksToSuccessors()).basicRemove(otherEnd, msgs);
+			case SimplepdlPackage.WORK_DEFINITION__RESSOURCE_NEEDED:
+				return ((InternalEList<?>)getRessourceNeeded()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}

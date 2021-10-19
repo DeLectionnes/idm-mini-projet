@@ -48,11 +48,13 @@ public interface Ressource extends ProcessElement {
 	/**
 	 * Returns the value of the '<em><b>Link To Sequence</b></em>' reference list.
 	 * The list contents are of type {@link simplepdl.RessourceSupply}.
+	 * It is bidirectional and its opposite is '{@link simplepdl.RessourceSupply#getPredecessor <em>Predecessor</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Link To Sequence</em>' reference list.
 	 * @see simplepdl.SimplepdlPackage#getRessource_LinkToSequence()
-	 * @model
+	 * @see simplepdl.RessourceSupply#getPredecessor
+	 * @model opposite="predecessor"
 	 * @generated
 	 */
 	EList<RessourceSupply> getLinkToSequence();

@@ -1,0 +1,29 @@
+
+net developpement-ressources
+pl ConceptionReady (1)
+pl ConceptionStarted (0)
+pl ConceptionRunning (0)
+pl ConceptionFinished (0)
+pl ProgrammationReady (1)
+pl ProgrammationStarted (0)
+pl ProgrammationRunning (0)
+pl ProgrammationFinished (0)
+pl RedactionDocumentationReady (1)
+pl RedactionDocumentationStarted (0)
+pl RedactionDocumentationRunning (0)
+pl RedactionDocumentationFinished (0)
+pl RedactionTestsReady (1)
+pl RedactionTestsStarted (0)
+pl RedactionTestsRunning (0)
+pl RedactionTestsFinished (0)
+pl RessourceTasse_de_cafe (5)
+pl RessourcePapier (10)
+tr ConceptionStart ConceptionReady*1 RessourcePapier*5  -> ConceptionStarted*1 ConceptionRunning*1 RessourcePapier*5
+tr ConceptionFinish ConceptionRunning*1  -> ConceptionFinished*1
+tr ProgrammationStart ProgrammationReady*1 RessourceTasse_de_cafe*3 ConceptionFinished?1 -> ProgrammationStarted*1 ProgrammationRunning*1 RessourceTasse_de_cafe*3
+tr ProgrammationFinish ProgrammationRunning*1  -> ProgrammationFinished*1
+tr RedactionDocumentationStart RedactionDocumentationReady*1 RessourcePapier*5 ConceptionStarted?1 -> RedactionDocumentationStarted*1 RedactionDocumentationRunning*1 RessourcePapier*5
+tr RedactionDocumentationFinish RedactionDocumentationRunning*1 ConceptionFinished?1 -> RedactionDocumentationFinished*1
+tr RedactionTestsStart RedactionTestsReady*1 RessourceTasse_de_cafe*4 ConceptionStarted?1 -> RedactionTestsStarted*1 RedactionTestsRunning*1 RessourceTasse_de_cafe*4
+tr RedactionTestsFinish RedactionTestsRunning*1 ProgrammationFinished?1 -> RedactionTestsFinished*1
+

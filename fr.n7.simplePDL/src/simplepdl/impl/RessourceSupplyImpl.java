@@ -4,6 +4,7 @@ package simplepdl.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
+import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
@@ -141,11 +142,33 @@ public class RessourceSupplyImpl extends ProcessElementImpl implements Ressource
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSuccessor(WorkDefinition newSuccessor) {
+	public NotificationChain basicSetSuccessor(WorkDefinition newSuccessor, NotificationChain msgs) {
 		WorkDefinition oldSuccessor = successor;
 		successor = newSuccessor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimplepdlPackage.RESSOURCE_SUPPLY__SUCCESSOR, oldSuccessor, successor));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimplepdlPackage.RESSOURCE_SUPPLY__SUCCESSOR, oldSuccessor, newSuccessor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setSuccessor(WorkDefinition newSuccessor) {
+		if (newSuccessor != successor) {
+			NotificationChain msgs = null;
+			if (successor != null)
+				msgs = ((InternalEObject)successor).eInverseRemove(this, SimplepdlPackage.WORK_DEFINITION__RESSOURCE_NEEDED, WorkDefinition.class, msgs);
+			if (newSuccessor != null)
+				msgs = ((InternalEObject)newSuccessor).eInverseAdd(this, SimplepdlPackage.WORK_DEFINITION__RESSOURCE_NEEDED, WorkDefinition.class, msgs);
+			msgs = basicSetSuccessor(newSuccessor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplepdlPackage.RESSOURCE_SUPPLY__SUCCESSOR, newSuccessor, newSuccessor));
 	}
 
 	/**
@@ -179,11 +202,69 @@ public class RessourceSupplyImpl extends ProcessElementImpl implements Ressource
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setPredecessor(Ressource newPredecessor) {
+	public NotificationChain basicSetPredecessor(Ressource newPredecessor, NotificationChain msgs) {
 		Ressource oldPredecessor = predecessor;
 		predecessor = newPredecessor;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SimplepdlPackage.RESSOURCE_SUPPLY__PREDECESSOR, oldPredecessor, predecessor));
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, SimplepdlPackage.RESSOURCE_SUPPLY__PREDECESSOR, oldPredecessor, newPredecessor);
+			if (msgs == null) msgs = notification; else msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setPredecessor(Ressource newPredecessor) {
+		if (newPredecessor != predecessor) {
+			NotificationChain msgs = null;
+			if (predecessor != null)
+				msgs = ((InternalEObject)predecessor).eInverseRemove(this, SimplepdlPackage.RESSOURCE__LINK_TO_SEQUENCE, Ressource.class, msgs);
+			if (newPredecessor != null)
+				msgs = ((InternalEObject)newPredecessor).eInverseAdd(this, SimplepdlPackage.RESSOURCE__LINK_TO_SEQUENCE, Ressource.class, msgs);
+			msgs = basicSetPredecessor(newPredecessor, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, SimplepdlPackage.RESSOURCE_SUPPLY__PREDECESSOR, newPredecessor, newPredecessor));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SimplepdlPackage.RESSOURCE_SUPPLY__SUCCESSOR:
+				if (successor != null)
+					msgs = ((InternalEObject)successor).eInverseRemove(this, SimplepdlPackage.WORK_DEFINITION__RESSOURCE_NEEDED, WorkDefinition.class, msgs);
+				return basicSetSuccessor((WorkDefinition)otherEnd, msgs);
+			case SimplepdlPackage.RESSOURCE_SUPPLY__PREDECESSOR:
+				if (predecessor != null)
+					msgs = ((InternalEObject)predecessor).eInverseRemove(this, SimplepdlPackage.RESSOURCE__LINK_TO_SEQUENCE, Ressource.class, msgs);
+				return basicSetPredecessor((Ressource)otherEnd, msgs);
+		}
+		return super.eInverseAdd(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+			case SimplepdlPackage.RESSOURCE_SUPPLY__SUCCESSOR:
+				return basicSetSuccessor(null, msgs);
+			case SimplepdlPackage.RESSOURCE_SUPPLY__PREDECESSOR:
+				return basicSetPredecessor(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
