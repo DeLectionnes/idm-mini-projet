@@ -50,6 +50,7 @@ context ReadArc
 context State
 	--Si un état n'a pas de jeton initialement, il est relié à un arc entrant.
 	inv videEtEntreParUnArc : self.tokenNb > 0 or self.arcs -> exists (p | p.towardState > 0)
+	inv relieArc : self.arcs -> notEmpty()
 	
 context Transition
 	--Chaque transition est au moins reliée pas un arc entrant et un arc sortant

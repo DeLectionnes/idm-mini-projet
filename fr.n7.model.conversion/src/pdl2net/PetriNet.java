@@ -53,11 +53,11 @@ public class PetriNet {
 				t.setNetwork(network);
 			}
 			public Transition getTransition() {
-				hashTransition.put(t.getName(), t);
 				return t;
 			}
 			
 			public void save() {
+				hashTransition.put(t.getName(), t);
 				network.getNetworkElement().add(t);
 			}
 		}
@@ -71,9 +71,6 @@ public class PetriNet {
 				a.setTransition(transition);
 				a.setTowardTransition(toTransition);
 				a.setNetwork(network);
-			}
-			public Arc getArc() {
-				return a;
 			}
 			
 			public void save() {
@@ -90,10 +87,6 @@ public class PetriNet {
 				ra.setTowardTransition(toTransition);
 				ra.setNetwork(network);
 			}
-			public ReadArc getReadArc() {
-				return ra;
-			}
-			
 			public void save() {
 				network.getNetworkElement().add(ra);
 			}

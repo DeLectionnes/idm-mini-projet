@@ -29,12 +29,7 @@ EString returns ecore::EString:
 WorkDefinition returns WorkDefinition:
 	{WorkDefinition}
 	'WorkDefinition'
-	name=EString
-	'{'
-		('linksToPredecessors' '(' linksToPredecessors+=[WorkSequence|EString] ( "," linksToPredecessors+=[WorkSequence|EString])* ')' )?
-		('linksToSuccessors' '(' linksToSuccessors+=[WorkSequence|EString] ( "," linksToSuccessors+=[WorkSequence|EString])* ')' )?
-		('ressourceNeeded' '(' ressourceNeeded+=[RessourceSupply|EString] ( "," ressourceNeeded+=[RessourceSupply|EString])* ')' )?
-	'}';
+	name=EString;
 
 WorkSequence returns WorkSequence:
 	'WorkSequence'
@@ -49,7 +44,6 @@ Ressource returns Ressource:
 	name=EString
 	'{'
 		'quantity' quantity=EInt
-		('linkToSequence' '(' linkToSequence+=[RessourceSupply|EString] ( "," linkToSequence+=[RessourceSupply|EString])* ')' )?
 	'}';
 
 RessourceSupply returns RessourceSupply:

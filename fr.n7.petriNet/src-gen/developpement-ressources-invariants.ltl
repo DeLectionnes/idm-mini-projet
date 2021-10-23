@@ -1,0 +1,33 @@
+<> (ConceptionReady => ConceptionRunning);
+<> (ConceptionReady => ConceptionStarted);
+ConceptionRunning => ConceptionFinished;
+
+[] (ConceptionReady + ConceptionRunning + ConceptionFinished = 1);
+
+<> (ProgrammationReady => ProgrammationRunning);
+<> (ProgrammationReady => ProgrammationStarted);
+ProgrammationRunning => ProgrammationFinished;
+
+[] (ProgrammationReady + ProgrammationRunning + ProgrammationFinished = 1);
+
+<> (RedactionDocumentationReady => RedactionDocumentationRunning);
+<> (RedactionDocumentationReady => RedactionDocumentationStarted);
+RedactionDocumentationRunning => RedactionDocumentationFinished;
+
+[] (RedactionDocumentationReady + RedactionDocumentationRunning + RedactionDocumentationFinished = 1);
+
+<> (RedactionTestsReady => RedactionTestsRunning);
+<> (RedactionTestsReady => RedactionTestsStarted);
+RedactionTestsRunning => RedactionTestsFinished;
+
+[] (RedactionTestsReady + RedactionTestsRunning + RedactionTestsFinished = 1);
+
+
+ConceptionStarted => RedactionDocumentationStart;
+ConceptionStarted => RedactionTestsStart;
+ConceptionFinished => ProgrammationStart;
+ProgrammationFinished => RedactionTestsFinish;
+ConceptionFinished => RedactionDocumentationFinish;
+
+[] (5 = RessourceTasse_de_cafe + 2*ProgrammationRunning + 3*RedactionTestsRunning);
+[] (10 = RessourcePapier + 5*ConceptionRunning + 5*RedactionDocumentationRunning);

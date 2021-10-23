@@ -64,5 +64,8 @@ context RessourceSupply
 	):
 		self.process() = self.successor.process()
 		and self.process() = self.predecessor.process()	
+		
+	--La quantite transferee doit etre positive.
+	inv quantiteTransfereePositive: self.quantityNeeded > 0
 
 endpackage
